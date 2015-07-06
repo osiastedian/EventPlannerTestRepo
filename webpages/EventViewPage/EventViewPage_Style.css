@@ -1,0 +1,124 @@
+/*
+    EventViewPage_Style.css
+    Current Version: 1.0
+    IntelliAgents (C) 2015
+    Author: Charlie Ahl Arreglo
+    
+    Revisions:
+    Version 1.0 - Initial programming of the CSS for the EventViewPage. "The code is kind of messy. Need more CSS leanings."
+*/
+html, body {
+    height: 100%;
+    font-family: Segoe UI,Frutiger,Frutiger Linotype,Dejavu Sans,Helvetica Neue,Arial,sans-serif;
+    background-color: #B4C7E7;
+    background-image: url("img/bg.png");
+    background-size: cover;
+}
+
+#tableContainer-1 {
+    height: 100%;
+    width: 100%;
+    display: table;
+}
+
+#tableContainer-2 {
+    vertical-align: middle;
+    display: table-cell;
+    height: 100%;
+}
+
+#MainTable {
+	width: 50%;
+	margin: 0 auto;
+	border-spacing: 75px;
+}
+
+#ListCover {
+    background: #2285C5;
+    padding: 10px;
+    border-radius:5px;
+    -moz-border-radius:5px;
+    -webkit-border-radius:5px;
+}
+#ListPaper {
+    background: #FFFFFF;
+    border-radius:5px;
+    -moz-border-radius:5px;
+    -webkit-border-radius:5px;
+}
+
+#td_EventTitle {
+	background: #9dc3e6;
+	text-align: center;
+}
+
+#td_EventTitle2 {
+	background: #f4b183;
+	text-align: center;
+}
+
+#td_EventTitle3 {
+	background: #a9d18e;
+	text-align: center;
+}
+
+#td_EventTitle4 {
+	background: #92d050;
+	text-align: center;
+}
+
+#td_EventTitle5 {
+	background: #ffc000;
+	text-align: center;
+}
+
+#eventTitle {
+	font-size: 22px;
+}
+#eventHost {
+	vertical-align: top;
+}
+
+.onoffswitch {
+    position: relative; width: 35px;
+    -webkit-user-select:none; -moz-user-select:none; -ms-user-select: none;
+}
+.onoffswitch-checkbox {
+    display: none;
+}
+.onoffswitch-label {
+    display: block; overflow: hidden; cursor: pointer;
+    border: 2px solid #999999; border-radius: 5px;
+}
+.onoffswitch-inner {
+    display: block; width: 200%; margin-left: -100%;
+    -moz-transition: margin 0.3s ease-in 0s; -webkit-transition: margin 0.3s ease-in 0s;
+    -o-transition: margin 0.3s ease-in 0s; transition: margin 0.3s ease-in 0s;
+}
+.onoffswitch-inner:before, .onoffswitch-inner:after {
+    display: block; float: left; width: 50%; height: 30px; padding: 0; line-height: 30px;
+    font-size: 14px; color: white; font-family: Trebuchet, Arial, sans-serif; font-weight: bold;
+    -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;
+}
+.onoffswitch-inner:before {
+    content: "\2713";
+    background-color: #e64a3b; color: #FFFFFF;
+}
+.onoffswitch-inner:after {
+    content: "";
+    padding-right: 10px;
+    background-color: #EEEEEE; color: #999999;
+    text-align: right;
+}
+.onoffswitch-switch {
+    background: #FFFFFF;
+    position: absolute; top: 0; bottom: 0; right: 56px;
+    -moz-transition: all 0.3s ease-in 0s; -webkit-transition: all 0.3s ease-in 0s;
+    -o-transition: all 0.3s ease-in 0s; transition: all 0.3s ease-in 0s; 
+}
+ .onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-inner {
+    margin-left: 0;
+}
+.onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-switch {
+    right: 0px; 
+}
