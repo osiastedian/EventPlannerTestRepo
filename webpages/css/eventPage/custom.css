@@ -1,0 +1,140 @@
+/*custom css*/
+body{
+	background-color: #B2C6E8;
+}
+
+input[type="checkbox"].onlinecheckbox  {
+    color: #ffffff;
+}
+
+.checkbox input[type="checkbox"].onlinecheckbox:checked  {
+    background-color: #428bca;
+}
+
+#section {
+    width:500px;
+    float:left;
+    margin-left:120px;    
+    padding-left:72px; 
+}
+
+#nav {
+    line-height:30px;
+    height:300px;
+    width:250px;
+    float:left;
+    margin-left:75px;
+}
+
+.todo{
+	margin-left:32px;
+}
+
+.todoitems{
+	margin-left:8px;
+}
+
+.checklist{
+	margin-left: -5px;
+}
+
+.checkboxlist{
+	height:35px; 
+	width:45px;
+}
+
+.arrow-left {
+	width: 0; 
+	height: 0; 
+	border-top: 15px solid transparent;
+	border-bottom: 15px solid transparent; 
+	background-color: #B2C6E8;
+	border-right:15px solid blue; 
+}
+
+.verticalLine{
+	border-left: thick solid white;
+}
+
+.people{
+  color:white;
+  font-size: 20px;
+}
+
+
+
+/* LESS Variables */
+/* -------------- */
+/* General */
+/* Button Bar */
+/* Button */
+/* Elements */
+/* -------- */
+/*html {
+  line-height: 1.5;
+  text-align: center;
+}*/
+h1 {
+  text-size: 10px;
+}
+a {
+  text-decoration: none;
+}
+/* Layout */
+/* ------ */
+h1.welcome,
+.button-bar {
+  margin: 10px auto;
+  height: auto;
+}
+.button-bar {
+}
+/* General Button */
+/* -------------- */
+.button {
+  position: relative;
+  margin: 0;
+  padding-left: 2px;
+  padding-right: 2px;
+  padding-top: 1px;
+  padding-bottom: 1px;
+  background: #d9534f;
+  color: white;
+  font-size: 14px;
+}
+.button::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  width: 0;
+  height: 0;
+}
+.button:hover {
+  background: #d9534f;
+}
+/* Arrow Buttons */
+/* ------------- */
+.next::after,
+.prev::after {
+  border-style: solid;
+}
+/* Next Button */
+/* ----------- */
+.next::after {
+  right: -18px;
+  border-width: 9px;
+  border-color: transparent transparent transparent #d9534f;
+}
+.next:hover::after {
+  border-left-color: #d9534f;
+}
+/* Prev Button */
+/* ----------- */
+.prev::after {
+  left: -18px;
+  border-color: transparent #d9534f transparent transparent;
+  border-width: 9px;
+}
+.prev:hover::after {
+  border-right-color: #d9534f;
+}
