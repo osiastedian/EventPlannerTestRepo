@@ -3,13 +3,17 @@
 
 <head>
 
-    <meta charset="utf-8">
+    <!--meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
-    <meta name="author" content="">
-
-    <title>Intelli-Agent's Events Planner | Events</title>
+    <meta name="author" content=""-->
+    <meta name="viewport" content="width-device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <link href="css/eventPage/bootstrap.min.css" rel="stylesheet">
+    <link href="css/eventPage/custom.css" rel="stylesheet">
+    <title>Intelli-Agent's Events Planner | Event Page</title>
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
@@ -34,8 +38,8 @@
 
 </head>
 
-<body id="page-top">
-     <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
+<body id="page-top" ng-app="" bgcolor="#B2C6E8">
+    <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
     <div class="container-fluid">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
@@ -45,7 +49,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand page-scroll" href="/">Events Planner</a>
+                <a class="navbar-brand page-scroll" href="index.html">Events Planner</a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -72,7 +76,6 @@
                     <li>
                         <a class="page-scroll" href="/settings">Setting</a>
                     </li>
-
                     
                 </ul>
             </div>
@@ -82,35 +85,113 @@
     </nav>
     <section class="bg-dark" id="Events">
         <div class="container text-center">
-            <h1>Events</h1>
+            <h1>TO DO PAGE</h1>
         </div>
     </section>
-    <section class="bg-light" id="EventList">
-        <div class="container">
-            <div class="row" ng-app="" ng-init="
-            events = [
-            { name: 'Event1', description:'desc1'},
-            { name: 'Event2', description:'desc2'},
-            { name: 'Event3', description:'desc3'},
-            { name: 'Event4', description:'desc4'},
-            { name: 'Event5', description:'desc5'},
-            { name: 'Event6', description:'desc6'},
-            { name: 'Event7', description:'desc7'},
-            { name: 'Event8', description:'desc8'}
-            ]
-        ">
-            <div class="col-lg-3 col-md-6 text-center" ng-repeat="x in events">
-                <div class="service-box">
-                    <a href="#">
-                    	<i class="fa fa-4x fa-diamond wow bounceIn text-primary"></i>
-                    </a>
-                    <h3>{{ x.name}}</h3>
-                    <p class="text-muted">{{x.description}}</p>
+    <img src="img/img_eventPage/party.jpg">
+
+     <sectionevent>
+    <div class="container bg-blue">
+    
+    <p><div class="people" id="nav">
+
+            &nbsp; &nbsp;People Involved
+            <p>&nbsp; &nbsp;<img src="img/img_eventPage/p1.png"> &nbsp;<img src="img/img_eventPage/p2.png"> &nbsp;<img src="img/img_eventPage/p3.png"> &nbsp;<img src="img/img_eventPage/p4.png"> </p>
+
+            <p>&nbsp; &nbsp;<img src="img/img_eventPage/p5.png"> &nbsp;<img src="img/img_eventPage/p6.png"> &nbsp;<img src="img/img_eventPage/p7.png">
+            <a href="#">
+                <div class="rectangle-box-addpeople" style="cursor:pointer" >
+                    <div class="rectangle-content">
+                        <div>
+                            <span>+</span>
+                        </div>
                     </div>
                 </div>
-            </div>   
+            </a>
+            </p>        
+        </div>  
+
+        <div class="verticalLine" id="section">
+            <a href="#">
+            <div class='rectangle-box-addTask' style="cursor:pointer">
+                 <div class='rectangle-content'><div><span>+Add another task</span></div></div>
+            </div>
+            </a>
+
+            <p style="line-height:0">     
+            <div class="checkbox">
+                <label><input class="onlinecheckbox checkboxlist" type="checkbox" value="" ></label>
+                &nbsp;&nbsp;<div class='rectangle-box-todocheck '>
+                <div class="rectangle-content">
+                    <div>
+                        <span>Buy a Cake</span>
+                    </div>
+                </div>
+                </div>
+            </div>
+            </p>
+
+            <p style="line-height:0"> 
+            <br>    
+            <div class="checkbox">
+                <label><input class="onlinecheckbox checkboxlist" type="checkbox" value="" ></label>
+                &nbsp;&nbsp;<div class='rectangle-box-todoyet '>
+                <div class="rectangle-content">
+                    <div>
+                        <span>Clean House</span>
+                    </div>
+                </div>
+                </div>
+            </div>
+            </p>
+
+            <p style="line-height:0"> 
+            <br>    
+            <div class="checkbox">
+                <label><input class="onlinecheckbox checkboxlist" type="checkbox" value="" ></label>
+                &nbsp;&nbsp;<div class='rectangle-box-todoyet '>
+                <div class="rectangle-content">
+                    <div>
+                        <span>Buy 20 Plastic Cups</span>
+                    </div>
+                </div>
+                </div>
+            </div>
+            </p>
+
+            <p style="line-height:0"> 
+            <br>    
+            <div class="checkbox">
+                <label><input class="onlinecheckbox checkboxlist" type="checkbox" value="" ></label>
+                &nbsp;&nbsp;<div class='rectangle-box-todocheck '>
+                <div class="rectangle-content">
+                    <div>
+                        <span>Buy Drinks</span>
+                    </div>
+                </div>
+                </div>
+            </div>
+            </p>
+
+            <p style="line-height:0"> 
+            <br>    
+            <div class="checkbox">
+                <label><input class="onlinecheckbox checkboxlist" type="checkbox" value="" ></label>
+                &nbsp;&nbsp;<div class='rectangle-box-todoyet '>
+                <div class="rectangle-content">
+                    <div>
+                        <span>Download Party Songs</span>
+                    </div>
+                </div>
+                </div>
+            </div>
+            </p>
         </div>
-    </section>
+    </p>
+    </div> 
+     </section>
+    
+    
     <section id="contact" class="bg-dark">
         <div class="container ">
             <div class="row">
@@ -129,7 +210,15 @@
                 </div>
             </div>
         </div>
-    </section>
+    </sectionevent>
+
+    
+
+
+
+
+
+
 
 
     <!-- Angular -->
