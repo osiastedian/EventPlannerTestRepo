@@ -35,8 +35,8 @@
 </head>
 
 <body id="page-top" ng-app="">
-    <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
-        <div class="container-fluid">
+     <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
@@ -49,7 +49,7 @@
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
-           <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
                     <li>
                         <a class="page-scroll" href="login.html">Login</a>
@@ -58,11 +58,15 @@
                         <a class="page-scroll" href="allevents.html">Events</a>
                     </li>
                     <li>
+                        <a class="page-scroll" href="addTodo.html">+ Todo</a>
+                    </li>
+                    <li>
                         <a class="page-scroll" href="profile.html">Profile</a>
                     </li>
                     <li>
                         <a class="page-scroll" href="settings.html">Setting</a>
                     </li>
+
                     
                 </ul>
             </div>
@@ -70,42 +74,52 @@
         </div>
         <!-- /.container-fluid -->
     </nav>
-	<section class="bg-dark" id="Events">
+	
+	<section class="bg-dark" id="Settings">
         <div class="container text-center">
-            <h1>Profile</h1>
+            <h1>Settings</h1>
         </div>
     </section>
-	<section id="profile" class="bg-light" ng-app="" ng-init="
-			person = {
-				name: 'James Suson',
-				age: '20',
-				email: 'jvsuson17@gmail.com',
-				birthday: '01/17/95',
-				address: 'Consolacion'
+	<section class="bg-light" id="SettingsPage">
+        <div class="container text-center">
+			Setting 1
+			
+			<div class="btn-group" style="padding-left:200px;">
 				
-			}
-	">
-		<div class="container text-center form-group">
-			<p>
-			<!--<img src="{{person.src}}" width="200" height="200"/>-->
-			</p>
-			<p>
-            Name: {{person.name}}
-			</p>
-			<p>
-            Age: {{person.age}}
-			</p>
-			<p>
-            E-mail: {{person.email}}
-			</p>
-			<p>
-            Birthday: {{person.birthday}}
-			</p>
-			<p>
-            Address: {{person.address}}
-			</p>
-		</div>
-	</section>
+				<button type="button" class="btn btn-primary" style="min-width:150px;">Action</button>
+				<button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+					<span class="caret"></span>
+					<span class="sr-only">Toggle Dropdown</span>
+				</button>
+				<ul class="dropdown-menu" role="menu">
+					<li><a href="#">Action</a></li>
+					<li><a href="#">Another action</a></li>
+					<li><a href="#">Something else here</a></li>
+				</ul>
+			</div>
+			
+			<br><br>
+			Setting 2
+			
+			<div class="btn-group" role="group" aria-label="..." style="padding-left:200px; min-width:300px;">
+				<button type="button" class="btn btn-primary">-</button>
+				<button type="button" class="btn btn-primary">.</button>
+				<button type="button" class="btn btn-primary">.</button>
+				<button type="button" class="btn btn-primary">.</button>
+				<button type="button" class="btn btn-primary">.</button>
+				<button type="button" class="btn btn-primary">+</button>
+			</div>
+			
+			<br><br>
+			
+			<br>
+			
+			<button class="btn btn-primary" type="submit" style="min-width:100px;">Save</button>
+			<button class="btn btn-primary" type="button" style="min-width:100px;">Revert</button>
+        </div>
+    </section>
+	
+	
     <section id="contact" class="bg-dark">
         <div class="container ">
             <div class="row">

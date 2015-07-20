@@ -9,14 +9,14 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Intelli-Agent's Events Planner | <page_name></title>
+    <title>Intelli-Agent's Events Planner | Home</title>
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
 
-    <!-- Custom Fonts
+    <!-- Custom Fonts 
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'> -->
+    <link href='http://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>-->
     <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css" type="text/css">
 
     <!-- Plugin CSS -->
@@ -34,9 +34,9 @@
 
 </head>
 
-<body id="page-top" ng-app="">
-    <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
-        <div class="container-fluid">
+<body id="page-top">
+     <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
@@ -58,11 +58,15 @@
                         <a class="page-scroll" href="allevents.html">Events</a>
                     </li>
                     <li>
+                        <a class="page-scroll" href="addTodo.html">+ Todo</a>
+                    </li>
+                    <li>
                         <a class="page-scroll" href="profile.html">Profile</a>
                     </li>
                     <li>
                         <a class="page-scroll" href="settings.html">Setting</a>
                     </li>
+
                     
                 </ul>
             </div>
@@ -70,6 +74,73 @@
         </div>
         <!-- /.container-fluid -->
     </nav>
+    
+    <header>
+        <div class="header-content">
+            <div class="header-content-inner">
+                <h2>Welcome to Intelli-Agent's Events Planner!</h2>
+                <hr>
+                <p>Intelli-Agent's Events Planner is a planner tool that lets you interact
+                    with the current events as of this moment. You can view all events right now
+                    and explore all possibilities!</p>
+                <a href="#events" class="btn btn-primary btn-xl page-scroll">View Current Events!</a>
+            </div>
+        </div>
+
+    </header>
+    <section id="events" >
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2 class="section-heading">Events</h2>
+                    <hr class="primary">
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-md-6 text-center">
+                    <div class="service-box">
+                        <a href="#"><i class="fa fa-4x fa-diamond wow bounceIn text-primary"></i></a>
+                        <h3>Event Type 1</h3>
+                        <p class="text-muted">Event Decription 1</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 text-center">
+                    <div class="service-box">
+                        <i class="fa fa-4x fa-paper-plane wow bounceIn text-primary" data-wow-delay=".1s"></i>
+                        <h3>Event Type 2</h3>
+                        <p class="text-muted">Event Description 2</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 text-center">
+                    <div class="service-box">
+                        <i class="fa fa-4x fa-newspaper-o wow bounceIn text-primary" data-wow-delay=".2s"></i>
+                        <h3>Event Type 3</h3>
+                        <p class="text-muted">Event Description 3</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 text-center">
+                    <div class="service-box">
+                        <i class="fa fa-4x fa-star wow bounceIn text-primary" data-wow-delay=".3s"></i>
+                        <h3>Event Type 4</h3>
+                        <p class="text-muted">Event Description 4</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <a href="allevents.html" class="btn btn-primary btn-xl page-scroll">Find out More...</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+
     <section id="contact" class="bg-dark">
         <div class="container ">
             <div class="row">
@@ -90,17 +161,7 @@
         </div>
     </section>
 
-    
 
-
-
-
-
-
-
-
-    <!-- Angular -->
-    <script src="js/angular.min.js"></script>
     <!-- jQuery -->
     <script src="js/jquery.js"></script>
 
