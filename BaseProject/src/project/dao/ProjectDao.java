@@ -5,6 +5,12 @@
  * --------------------------------------------------------------------------- */
 package project.dao;
 
-public class ProjectDao {
+import org.slim3.datastore.Datastore;
 
+public class ProjectDao {
+    Datastore db;
+    public void test()
+    {
+        
+    }
 }

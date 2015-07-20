@@ -10,13 +10,13 @@ import org.slim3.controller.Navigation;
 
 /**
  * Main Screen Home controller.
- * @author <name here>
+ * @author Ted Ian Osias
  *
  */
 public class IndexController extends Controller {
 
     @Override
     protected Navigation run() throws Exception {
-        return forward("project/index.jsp");
+        return forward("project/index.html");
     }
 }
