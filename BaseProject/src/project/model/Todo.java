@@ -2,11 +2,14 @@ package project.model;
 
 import java.io.Serializable;
 
-import org.slim3.datastore.Attribute;
 import com.google.appengine.api.datastore.Key;
 
+import org.slim3.datastore.Attribute;
+import org.slim3.datastore.Model;
+
+@Model(schemaVersion = 1)
 public class Todo implements Serializable {
-    private static final long serialVersionUID = 1L;
+    
     /**
      *  Title of the Todo.
      */
@@ -81,7 +84,9 @@ public class Todo implements Serializable {
     public void setFinished_quantity(int finished_quantity) {
         this.finished_quantity = finished_quantity;
     }
-
+    
+    private static final long serialVersionUID = 1L;
+    
     @Attribute(primaryKey = true)
     private Key key;
 
