@@ -18,7 +18,7 @@ input[type="checkbox"].onlinecheckbox  {
 #section {
     width:500px;
     float:left;
-    margin-left:332px;    
+    margin-left:120px;    
     padding-left:72px; 
 }
 
@@ -149,7 +149,7 @@ h1.welcome,
     width: 316px;
     height: 49px;
     overflow: hidden;
-    /*background: #B2C6E8;*/
+    background: #B2C6E8;
 }
 .rectangle-box-addTask:before{
     content: "";
@@ -174,7 +174,7 @@ h1.welcome,
     display: table-cell;
     text-align: center;
     vertical-align: middle;
-    color: black;
+    color: white;
     font-size: 20px
 }
 
@@ -183,7 +183,7 @@ h1.welcome,
     width: 258px;
     height: 49px;
     overflow: hidden;
-    /*background: #A8D08F;*/
+    background: #A8D08F;
     margin-left: 57px;
     top:0;
 }
@@ -198,7 +198,7 @@ h1.welcome,
     width: 258px;
     height: 49px;
     overflow: hidden;
-    /*background: #70AD47;*/
+    background: #70AD47;
     margin-left: 57px;
     top:0;
 }
@@ -213,7 +213,7 @@ h1.welcome,
     width: 47px;
     height: 49px;
     overflow: hidden;
-    /*background: #B2C6E8;*/
+    background: #B2C6E8;
     margin-left: 17px;    
 }
 .rectangle-box-addpeople:before{
@@ -223,7 +223,7 @@ h1.welcome,
 }
 
 .editTodoCheck{
-  /*background-color: #A8D08F;*/
+  background-color: #A8D08F;
   height:43px;
   width:253px;
   top:0;
@@ -233,7 +233,7 @@ h1.welcome,
 }
 
 .editTodoYet{
-  /*background-color: #70AD47;*/
+  background-color: #70AD47;
   height:43px;
   width:253px;
   top:0;
