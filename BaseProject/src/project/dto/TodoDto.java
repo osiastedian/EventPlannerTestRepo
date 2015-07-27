@@ -1,38 +1,35 @@
-package project.model;
+package project.dto;
 
-import java.io.Serializable;
+import org.slim3.datastore.Attribute;
 
 import com.google.appengine.api.datastore.Key;
 
-import org.slim3.datastore.Attribute;
-import org.slim3.datastore.Model;
-
-@Model(schemaVersion = 1)
-public class TodoModel implements Serializable {
+public class TodoDto {
+private static final long serialVersionUID = 1L;
     
     /**
-     *  Title of the Todo.
+     *  Title container.
      */
     private String title;
     /**
-     *  Description of the Todo.
+     *  Description container.
      */
     private String description;
     /**
-     *  Total Quantity of the Todo (1-n).
+     *  Total Quantity container.
      */
     private int total_quantity;
     /**
-     *  Finished Quantity of the Todo (1-total_quantity).
+     *  Finished Quantity container.
      *  
      */
     private int finished_quantity;
+
     
     /**
      * @return the title
      */
     public String getTitle() {
-        
         return title;
     }
 
@@ -84,9 +81,7 @@ public class TodoModel implements Serializable {
     public void setFinished_quantity(int finished_quantity) {
         this.finished_quantity = finished_quantity;
     }
-    
-    private static final long serialVersionUID = 1L;
-    
+
     @Attribute(primaryKey = true)
     private Key key;
 
@@ -150,7 +145,7 @@ public class TodoModel implements Serializable {
         if (getClass() != obj.getClass()) {
             return false;
         }
-        TodoModel other = (TodoModel) obj;
+        TodoDto other = (TodoDto) obj;
         if (key == null) {
             if (other.key != null) {
                 return false;
@@ -160,4 +155,5 @@ public class TodoModel implements Serializable {
         }
         return true;
     }
+
 }
