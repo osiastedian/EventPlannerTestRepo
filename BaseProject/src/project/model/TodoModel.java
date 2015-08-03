@@ -10,6 +10,21 @@ import org.slim3.datastore.Model;
 @Model(schemaVersion = 1)
 public class TodoModel implements Serializable {
     
+    private int id = 0;
+    /**
+     * @return the id
+     */
+    public int getId() {
+        return id;
+    }
+
+    /**
+     * @param id the id to set
+     */
+    public void setId(int id) {
+        this.id = id;
+    }
+
     /**
      *  Title of the Todo.
      */

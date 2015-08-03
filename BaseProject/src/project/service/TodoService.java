@@ -1,8 +1,14 @@
 package project.service;
 import java.util.List;
 
+import org.slim3.datastore.Datastore;
+import org.slim3.datastore.ModelListener;
+import org.slim3.datastore.json.JsonWriter;
+import org.slim3.datastore.json.ModelWriter;
+
 import project.dao.TodoDao;
 import project.dto.TodoDto;
+import project.meta.TodoModelMeta;
 import project.model.TodoModel;
 
 
@@ -39,9 +45,16 @@ public class TodoService {
      * 
      * @return List of todos.
      */
-    public List<TodoModel> getAllTodos()
+    public String getAllTodos()
     {
-        return null;
+        List<TodoModel> models   = dao.getAllTodos();
+        TodoModelMeta tm = new TodoModelMeta();
+        return tm.modelsToJson(models);
+    }
+    public String getTodoJsonByTitle(String title)
+    {
+        return dao.getTodoByTitle(title);
+        
     }
     /**
      * Gets all todos with particular sorting order using TodoDao. 
@@ -66,7 +79,13 @@ public class TodoService {
      */
     public boolean addTodo(TodoDto todo)
     {
-        return false;
+        TodoModel model = new TodoModel();
+        model.setKey(todo.getKey());
+        model.setTitle(todo.getTitle());
+        model.setDescription(todo.getDescription());
+        model.setFinished_quantity(todo.getFinished_quantity());
+        model.setTotal_quantity(todo.getTotal_quantity());
+        return dao.addTodo(model);
     }
     /**
      * Removes a Todo object in the Datastore using TodoDao with TodoDto. 
@@ -77,8 +96,8 @@ public class TodoService {
      */
     public boolean removeTodo(TodoDto todo)
     {
-        
-        return false;
+        todo.setKey(Datastore.createKey(TodoModel.class, todo.getTitle()));
+        return dao.removeTodo(todo.getKey());
     }
     /**
      * Updates a Todo object in the Datastore using TodoDao with TodoDto. 
@@ -89,6 +108,15 @@ public class TodoService {
      */
     public boolean updateTodo(TodoDto todo)
     {
+        TodoModel model = new TodoModel();
+        model.setKey(todo.getKey());
+        model.setTitle(todo.getTitle());
+        model.setTotal_quantity(todo.getTotal_quantity());
+        model.setDescription(todo.getDescription());
+        model.setVersion(todo.getVersion());
+        model.setId(todo.getId());
+        model.setFinished_quantity(todo.getFinished_quantity());
+        dao.updateTodo(model);
         return false;
     }
     

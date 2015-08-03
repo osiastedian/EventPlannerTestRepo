@@ -10,11 +10,14 @@ import java.util.Map;
 import org.slim3.datastore.Datastore;
 
 import com.google.appengine.api.datastore.Key;
+import com.google.appengine.api.datastore.Query;
+import com.google.appengine.api.datastore.Query.Filter;
+import com.google.appengine.api.datastore.Transaction;
 
+import project.meta.TodoModelMeta;
 import project.model.TodoModel;
 
 public class TodoDao{
-    Datastore db;
     /**
      * Gets all todos that contains String n in its title. <br> <br>
      * Ex.<br>
@@ -24,9 +27,14 @@ public class TodoDao{
      *            the string reference
      * @return List of todos.
      */
-    public List<TodoModel> getAllTodoContaining(String s)
+    public String getTodoByTitle(String title)
     {
-        return null;
+        String json = null;
+        TodoModel model= null;
+        model = Datastore.get(TodoModel.class, Datastore.createKey(TodoModel.class, title));
+        TodoModelMeta tm = new TodoModelMeta();
+        json = tm.modelToJson(model);
+        return json;
         
     }
     /**
@@ -36,7 +44,11 @@ public class TodoDao{
      */
     public List<TodoModel> getAllTodos()
     {
-        return null;
+        boolean ok = false;
+        Transaction trans = Datastore.beginTransaction();
+        List<TodoModel> list = (List<TodoModel>) Datastore.query(TodoModel.class).asList();
+        trans.commit();
+        return list;
     }
     /**
      * Gets all todos with particular sorting order. 
@@ -61,22 +73,34 @@ public class TodoDao{
      */
     public boolean addTodo(TodoModel todo)
     {
-        return false;
+        boolean ok = false;
+        Transaction trans = Datastore.beginTransaction();
+        Key key = Datastore.createKey(TodoModel.class, todo.getTitle());
+        todo.setKey(key);
+        TodoModelMeta tmm = new TodoModelMeta();
+        Datastore.put(todo);
+        trans.commit();
+        ok = true;
+        return ok;
     }
     /**
-     * Removes a Todo object in the Datastore using TodoDto. 
+     * Removes a Todo object in the Datastore using TodoModel. 
      *
      * @param todo
      *            the refernce to be added.
      * @return Whether transaction is succesful or not.
      */
-    public boolean removeTodo(TodoModel todo)
+    public boolean removeTodo(Key key)
     {
-        
-        return false;
+        boolean ok = false;
+        Transaction trans = Datastore.beginTransaction();
+        Datastore.delete(key);
+        trans.commit();
+        ok = true;
+        return ok;
     }
     /**
-     * Updates a Todo object in the Datastore using TodoDto. 
+     * Updates a Todo object in the Datastore using TodoModel. 
      *
      * @param todo
      *            the refernce to be added.
@@ -84,6 +108,11 @@ public class TodoDao{
      */
     public boolean updateTodo(TodoModel todo)
     {
-        return false;
+        boolean ok = false;
+        Transaction trans = Datastore.beginTransaction();
+        Datastore.put(todo);
+        trans.commit();
+        ok = true;
+        return ok;
     }
 }
