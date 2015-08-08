@@ -10,6 +10,24 @@ import org.slim3.datastore.Model;
 @Model(schemaVersion = 1)
 public class EventModel implements Serializable {
 
+    /**
+     *  Event Name container.
+     */
+    private String eventName;
+    /**
+     *  Description container.
+     */
+    private String description;
+
+    /**
+     * @return the eventName
+     */
+    public String getEventName() {
+        return eventName;
+    }
+
+    
+    
     private static final long serialVersionUID = 1L;
 
     @Attribute(primaryKey = true)
@@ -85,4 +103,17 @@ public class EventModel implements Serializable {
         }
         return true;
     }
+
+    public void setEventName(String eventName) {
+        this.eventName = eventName;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+    
 }

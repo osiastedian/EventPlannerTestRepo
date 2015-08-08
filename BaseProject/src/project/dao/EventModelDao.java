@@ -5,6 +5,8 @@ import java.util.List;
 import org.slim3.datastore.DaoBase;
 import org.slim3.datastore.Datastore;
 
+import com.google.appengine.api.datastore.Transaction;
+
 import project.model.EventModel;
 
 public class EventModelDao extends DaoBase<EventModel>{
@@ -55,6 +57,10 @@ public class EventModelDao extends DaoBase<EventModel>{
      */
     public boolean addEvent(EventModel e)
     {
+        //e.setKey(Datastore.createKey("Event",e.getTitle()));
+        Transaction trans = Datastore.beginTransaction();
+        Datastore.put(e);
+        trans.commit();
         return false;
     }
     /**

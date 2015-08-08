@@ -119,4 +119,8 @@ private static final long serialVersionUID = 1L;
         return true;
     }
 
+    public String getTitle() {
+        return null;
+    }
+
 }

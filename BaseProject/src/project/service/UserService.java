@@ -3,6 +3,8 @@ package project.service;
 import java.util.List;
 
 import project.dao.UserModelDao;
+import project.dto.UserDto;
+import project.model.TodoModel;
 import project.model.UserModel;
 
 
@@ -12,13 +14,7 @@ public class UserService {
      */
     private UserModelDao userModelDao = new UserModelDao();
     
-    /**
-     * Gets all the users in the db
-     * @return list of UserModels
-     */
-    public List<UserModel> getAllUsers(){
-        return null;
-    }
+    
     
     /**
      * Adds a user to the database
@@ -26,8 +22,16 @@ public class UserService {
      *          the user to be added
      * @return whether the transaction is successful or not.
      */
-    public boolean addUserModel(UserModel user){
+    public boolean addUserModel(UserDto user){
+        UserModel model = new UserModel();
+        model.setKey(user.getKey());
+        model.setAddress(user.getAddress());
+        model.setAge(user.getAge());
+        model.setBirthday(user.getBirthday());
+        model.setEmail(user.getEmail());
+        //model.set
         return true;
+        
     }
     
     /**
@@ -36,7 +40,7 @@ public class UserService {
      *          the user to be removed
      * @return whether the transaction is successful or not.
      */
-    public boolean removeUserModel(UserModel user){
+    public boolean removeUserModel(UserDto user){
         return true;
     }
     
@@ -46,7 +50,7 @@ public class UserService {
      *          the user to be updated
      * @return whether the transaction is successful or not.
      */
-    public boolean updateUserModel(UserModel user){
+    public boolean updateUserModel(UserDto user){
         return true;
     }
     
@@ -56,7 +60,7 @@ public class UserService {
      *          the user to be updated
      * @return whether the transaction is successful or not.
      */
-    public UserModel getUsermodel(UserModel user){
+    public String getUsermodel(UserDto user){
         return null;
     }
 }
