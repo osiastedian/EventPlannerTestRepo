@@ -63,9 +63,13 @@ public class EventService {
          *            the refernce to be added.
          * @return Whether transaction is succesful or not.
          */
-        public boolean addEvent(EventModel e)
+        public boolean addEvent(EventModelDto e)
         {
-            return false;
+            EventModel model = new EventModel();
+            model.setKey(e.getKey());
+           // model.setTitle(e.getTitle());
+            model.setVersion(e.getVersion());
+            return dao.addEvent(model);
         }
         /**
          * Removes an Event object in the Datastore using EventDto.

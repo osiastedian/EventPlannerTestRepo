@@ -1,17 +1,12 @@
 package project.dao;
 
-import org.slim3.datastore.DaoBase;
-import org.slim3.datastore.ModelMeta;
-import org.slim3.datastore.ModelQuery;
 
 import java.util.List;
-import java.util.Map;
+
 
 import org.slim3.datastore.Datastore;
 
 import com.google.appengine.api.datastore.Key;
-import com.google.appengine.api.datastore.Query;
-import com.google.appengine.api.datastore.Query.Filter;
 import com.google.appengine.api.datastore.Transaction;
 
 import project.meta.TodoModelMeta;
@@ -44,8 +39,7 @@ public class TodoDao{
      */
     public List<TodoModel> getAllTodos()
     {
-        boolean ok = false;
-        Transaction trans = Datastore.beginTransaction();
+       Transaction trans = Datastore.beginTransaction();
         List<TodoModel> list = (List<TodoModel>) Datastore.query(TodoModel.class).asList();
         trans.commit();
         return list;
@@ -77,7 +71,6 @@ public class TodoDao{
         Transaction trans = Datastore.beginTransaction();
         Key key = Datastore.createKey(TodoModel.class, todo.getTitle());
         todo.setKey(key);
-        TodoModelMeta tmm = new TodoModelMeta();
         Datastore.put(todo);
         trans.commit();
         ok = true;
