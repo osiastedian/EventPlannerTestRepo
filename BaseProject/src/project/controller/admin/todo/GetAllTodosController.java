@@ -10,7 +10,9 @@ public class GetAllTodosController extends Controller {
     @Override
     public Navigation run() throws Exception {
         TodoService service = new TodoService();
-        System.out.println(service.getAllTodos());
-        return this.redirect("/");
+        //System.out.println(service.getAllTodos());
+        response.setContentType("application/json");
+        response.getWriter().write(service.getAllTodos());
+        return null;
     }
 }

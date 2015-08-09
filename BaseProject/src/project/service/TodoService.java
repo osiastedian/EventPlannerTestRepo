@@ -51,9 +51,16 @@ public class TodoService {
         TodoModelMeta tm = new TodoModelMeta();
         return tm.modelsToJson(models);
     }
-    public String getTodoJsonByTitle(String title)
+    public TodoDto getTodoByTitle(TodoDto todo)
     {
-        return dao.getTodoByTitle(title);
+        TodoModel model =dao.getTodoByTitle(todo.getTitle());
+        todo.setDescription(model.getDescription());
+        todo.setKey(model.getKey());
+        todo.setFinished_quantity(model.getFinished_quantity());
+        todo.setId(model.getId());
+        todo.setTotal_quantity(model.getTotal_quantity());
+        todo.setVersion(model.getVersion());
+        return todo;
         
     }
     /**

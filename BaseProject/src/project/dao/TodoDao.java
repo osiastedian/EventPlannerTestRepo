@@ -4,9 +4,11 @@ package project.dao;
 import java.util.List;
 
 
+
 import org.slim3.datastore.Datastore;
 
 import com.google.appengine.api.datastore.Key;
+import com.google.appengine.api.datastore.Query;
 import com.google.appengine.api.datastore.Transaction;
 
 import project.meta.TodoModelMeta;
@@ -22,14 +24,13 @@ public class TodoDao{
      *            the string reference
      * @return List of todos.
      */
-    public String getTodoByTitle(String title)
+    public TodoModel getTodoByTitle(String title)
     {
-        String json = null;
         TodoModel model= null;
-        model = Datastore.get(TodoModel.class, Datastore.createKey(TodoModel.class, title));
-        TodoModelMeta tm = new TodoModelMeta();
-        json = tm.modelToJson(model);
-        return json;
+        Key key = Datastore.createKey(TodoModel.class, title);
+        model = Datastore.query(TodoModel.class).filter("title", Query.FilterOperator.EQUAL, title).asSingle();
+        //model.setKey(key);
+        return model;
         
     }
     /**

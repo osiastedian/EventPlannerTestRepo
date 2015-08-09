@@ -1,12 +1,18 @@
 package project.dto;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.slim3.datastore.Attribute;
+import org.slim3.repackaged.org.json.JSONException;
+import org.slim3.repackaged.org.json.JSONObject;
 
 import com.google.appengine.api.datastore.Key;
 
 public class TodoDto {
 private static final long serialVersionUID = 1L;
     
+    private List<String> errorList = new ArrayList<String>();
     /**
      *  Id container.
      */
@@ -165,6 +171,24 @@ private static final long serialVersionUID = 1L;
     }
     public void setId(int id) {
         this.id = id;
+    }
+    
+    public List<String> getErrorList() {
+        return this.errorList;
+    }
+    
+    public JSONObject toJSON() throws JSONException
+    {
+        JSONObject json = new JSONObject();
+            json.put("key", this.getKey());
+            json.put("title", this.getTitle());
+            json.put("description", this.getDescription());
+            json.put("id", this.getId());
+            json.put("finish_quantity", this.getFinished_quantity());
+            json.put("total_quantity", this.getTotal_quantity());
+        return json;
+        
+        
     }
 
 }
