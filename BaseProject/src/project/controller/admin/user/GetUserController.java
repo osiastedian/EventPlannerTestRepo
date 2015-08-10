@@ -37,7 +37,7 @@ public class GetUserController extends Controller {
         response.getWriter().write(json.toString());
         
         
-        return null;
+        return redirect("/");
     }
 
 }

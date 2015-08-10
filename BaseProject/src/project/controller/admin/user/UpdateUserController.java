@@ -24,7 +24,7 @@ public class UpdateUserController extends Controller {
         user.setName(um.getName());
         //user.setVersion(um.getVersion())
         service.updateUserModel(user);
-        return null;
+        return redirect("/");
         
     }
 
