@@ -30,7 +30,7 @@ public class AddTodoController extends Controller {
             json = new JSONObject((String)this.requestScope("data"));
             todo.setTitle(json.getString("title"));
             todo.setDescription(json.getString("description"));
-            todo.setFinished_quantity(json.getInt("finish_quantity"));
+            todo.setFinished_quantity(json.getInt("finished_quantity"));
             //todo.setKey((Key)json.get("key"));
             todo.setId(json.getInt("id"));
             todo.setTotal_quantity(json.getInt("total_quantity"));
