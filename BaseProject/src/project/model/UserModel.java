@@ -34,14 +34,14 @@ public class UserModel implements Serializable {
     /**
      * @return the age
      */
-    public String getAge() {
+    public int getAge() {
         return age;
     }
 
     /**
      * @param age the age to set
      */
-    public void setAge(String age) {
+    public void setAge(int age) {
         this.age = age;
     }
 
@@ -101,7 +101,7 @@ public class UserModel implements Serializable {
     /**
      * User's age
      */
-    private String age;
+    private int age;
     /**
      * User's address
      */

@@ -31,7 +31,7 @@ public class UserDto {
     /**
      * User's age
      */
-    private String age;
+    private int age;
     /**
      * User's address
      */
@@ -77,14 +77,14 @@ public class UserDto {
     /**
      * @return the age
      */
-    public String getAge() {
+    public int getAge() {
         return age;
     }
 
     /**
      * @param age the age to set
      */
-    public void setAge(String age) {
+    public void setAge(int age) {
         this.age = age;
     }
 
