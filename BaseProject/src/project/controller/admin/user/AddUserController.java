@@ -25,7 +25,10 @@ public class AddUserController extends Controller {
         user.setName(um.getName());
         //user.setVersion(um.getVersion())
         service.addUserModel(user);
-        return null;
+        /*
+         * 
+         * */
+        return redirect("/");
     }
 
 }

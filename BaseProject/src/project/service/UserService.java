@@ -36,8 +36,9 @@ public class UserService {
         model.setAge(user.getAge());
         model.setBirthday(user.getBirthday());
         model.setEmail(user.getEmail());
-        //model.set
-        return true;
+        model.setName(user.getName());
+        return userModelDao.addUserModel(model);
+        //return true;
         
     }
     
@@ -48,12 +49,7 @@ public class UserService {
      * @return whether the transaction is successful or not.
      */
     public boolean removeUserModel(Key key){
-        boolean ok = false;
-        Transaction trans = Datastore.beginTransaction();
-        Datastore.delete(key);
-        trans.commit();
-        ok = true;
-        return ok;
+        return userModelDao.removeUserModel(key);
     }
     
     /**
@@ -63,12 +59,14 @@ public class UserService {
      * @return whether the transaction is successful or not.
      */
     public boolean updateUserModel(UserDto user){
-        boolean ok = false;
-        Transaction trans = Datastore.beginTransaction();
-        Datastore.put(user);
-        trans.commit();
-        ok = true;
-        return ok;
+        UserModel model = new UserModel();
+        model.setKey(user.getKey());
+        model.setAddress(user.getAddress());
+        model.setAge(user.getAge());
+        model.setBirthday(user.getBirthday());
+        model.setEmail(user.getEmail());
+        model.setName(user.getName());
+        return userModelDao.updateUserModel(model);
     }
     
     /**
@@ -78,11 +76,6 @@ public class UserService {
      * @return whether the transaction is successful or not.
      */
     public UserDto getUsermodel(UserDto user){
-      //String json = null;
-        UserDto dto= null;
-        dto = Datastore.get(UserDto.class, Datastore.createKey("Users", user.getName()));
-        //UserModelMeta tm = new UserModelMeta();
-        //json = tm.modelToJson(model);
-        return dto;
+        return userModelDao.getUsermodel(user);
     }
 }

@@ -14,7 +14,7 @@ public class RemoveUserController extends Controller {
         // TODO Auto-generated method stub
         UserService service = new UserService();
         service.removeUserModel(um.getKey());
-        return null;
+        return redirect("/");
     }
 
 }
