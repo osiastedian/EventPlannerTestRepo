@@ -80,90 +80,54 @@
         </div>
         <!-- /.container-fluid -->
     </nav>
+    
     <section class="bg-dark" id="Events">
         <div class="container text-center">
             <h1>+TODO!</h1>
         </div>
     </section>
-    <div class="container text-center">
-        <div class="container" role="group">
-            <form id="action" class="navbar-form" role="form">
-                <div class="form-group">
-                    <h2 class="glyphicon glyphicon-check">Action</h2>
-                    <ul class="list-group ">
-                            <li class="list-group-item">
-                                <h4 class="list-group-item-heading">Title: </h4>
-                                <input type="text" class="form-control" placeholder="Title Here" name="title">
-                            </li>
-                            <li class="list-group-item">
-                                <h4 class="list-group-item-heading">Description: </h4>
-                                <textarea rows="4" cols="40" class="form-control " placeholder="Description" name="description" ></textarea>
-                            </li>
-                            <li class="list-group-item">
-                                <h4 class="list-group-item-heading">To: </h4>
-                                <div id="currentEvents" ng-app="" ng-init="
-                                   events = [
-                                    { name: 'No Event', description:'desc1'},
-                                    { name: 'Event1', description:'desc2'},
-                                    { name: 'Event2', description:'desc2'},
-                                    { name: 'Event3', description:'desc3'}
-                                    ]
-                                ">
-                                    <select class="form-control">
-                                        <option ng-repeat="x in events">{{x.name}}</option>
-                                    </select>
-                                </div>
-                            </li>
-                            <a class="list-group-item text-center">
-                                Add
-                            </a>
-                    </ul>
-                </div>
-            </form>            
-        </div>
-        <hr> <h2>OR</h2> <hr>
-        <div class="container" role="group">
-            <form id="quantative" class="navbar-form" role="form">
-                <div class="form-group">
-                    <h2 class="glyphicon glyphicon-plus">Quantitative</h2>
-
-                    <ul class="list-group ">
-                            <li class="list-group-item">
-                                <h4 class="list-group-item-heading">Title: </h4>
-                                <input type="text" class="form-control" placeholder="Title Here" name="title">
-                            </li>
-                            <li class="list-group-item">
-                                <h4 class="list-group-item-heading">Maximum: </h4>
-                                <div class="input-group">
-                                  <input type="text" class="form-control" placeholder="2"aria-label="Amount (to the nearest dollar)">
-                                  <span class="input-group-addon">> 1</span>
-                                </div>
-                            </li>
-
-                            <li class="list-group-item">
-                                <h4 class="list-group-item-heading">To: </h4>
-                                <div id="currentEvents" ng-app="" ng-init="
-                                   events = [
-                                    { name: 'No Event', description:'desc1'},
-                                    { name: 'Event1', description:'desc1'},
-                                    { name: 'Event2', description:'desc2'},
-                                    { name: 'Event3', description:'desc3'}
-                                    ]
-                                ">
-                                <select class="form-control">
-                                    <option ng-repeat="x in events">{{x.name}}</option>
-                                </select>
-                                </div>
-                            </li>
-                            <a class="list-group-item text-center">
-                                Add
-                            </a>
-                    </ul>
-                </div>
-            </form>            
-        </div>
-    </div>
+   <br>
+    <div class="container">
     
+        <form class="form-horizontal">
+
+            <div class="row col-xs-6" style="margin-left:290px;">
+                <div class="input-group">
+                  <span class="input-group-addon" id="sizing-addon2"><i class="glyphicon glyphicon-dashboard"></i></span>
+                  <select class="form-control" placeholder="Action" aria-describedby="sizing-addon2">
+                    <option>Action</option>
+                    <option>Quantitative</option>
+                  </select>
+                </div>
+                <br>
+                <div class="input-group">
+                  <span class="input-group-addon" id="sizing-addon2"><i class="glyphicon glyphicon-list-alt"></i></span>
+                  <input type="text" class="form-control" placeholder="Title" aria-describedby="sizing-addon2">
+                </div>
+                <br>
+                <div class="input-group">
+                  <span class="input-group-addon" id="sizing-addon2"><i class="glyphicon glyphicon-screenshot"></i></span>
+                  <textarea class="form-control" placeholder="Description" aria-describedby="sizing-addon2"></textarea>
+                </div>
+                <br>
+                <div class="input-group">
+                  <span class="input-group-addon" id="sizing-addon2"><i class="glyphicon glyphicon-dashboard"></i></span>
+                  <select class="form-control" placeholder="To" aria-describedby="sizing-addon2">
+                    <option>Event1</option>
+                    <option>Event2</option>
+                    <option>Event3</option>
+                  </select>
+                </div>
+                <br>
+                <div class="input-group" style="margin-top:10px;">
+                    <input type="submit" value="Add" class="btn btn-primary form-control" style="background:#F05F40;color:white;border-radius:10px;">
+                </div>
+            </div>
+
+        </form>     
+    
+    </div>
+    <br>
     
     
     <section id="contact" class="bg-dark">

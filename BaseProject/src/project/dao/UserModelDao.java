@@ -1,15 +1,20 @@
 package project.dao;
 
+import java.util.List;
+
 import org.slim3.datastore.DaoBase;
 import org.slim3.datastore.Datastore;
 
 import com.google.appengine.api.datastore.Key;
 import com.google.appengine.api.datastore.Transaction;
 
+import project.dto.UserDto;
+import project.meta.TodoModelMeta;
 import project.meta.UserModelMeta;
+import project.model.TodoModel;
 import project.model.UserModel;
 
-public class UserModelDao{
+public class UserModelDao extends DaoBase<UserModel>{
     Datastore db;
     
     
@@ -66,12 +71,12 @@ public class UserModelDao{
      *          the user to be updated
      * @return whether the transaction is successful or not.
      */
-    public String getUsermodel(UserModel user){
-        String json = null;
-        UserModel model= null;
-        model = Datastore.get(UserModel.class, Datastore.createKey("User", user.getName()));
-        UserModelMeta tm = new UserModelMeta();
-        json = tm.modelToJson(model);
-        return json;
+    public UserDto getUsermodel(UserDto user){
+        //String json = null;
+        UserDto dto= null;
+        dto = Datastore.get(UserDto.class, Datastore.createKey("User", user.getName()));
+        //UserModelMeta tm = new UserModelMeta();
+        //json = tm.modelToJson(model);
+        return dto;
     }
 }
