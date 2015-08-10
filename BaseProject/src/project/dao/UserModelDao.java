@@ -1,18 +1,15 @@
 package project.dao;
 
-import java.util.List;
-
 import org.slim3.datastore.DaoBase;
 import org.slim3.datastore.Datastore;
 
 import com.google.appengine.api.datastore.Key;
 import com.google.appengine.api.datastore.Transaction;
 
-import project.meta.TodoModelMeta;
-import project.model.TodoModel;
+import project.meta.UserModelMeta;
 import project.model.UserModel;
 
-public class UserModelDao extends DaoBase<UserModel>{
+public class UserModelDao{
     Datastore db;
     
     
@@ -25,7 +22,7 @@ public class UserModelDao extends DaoBase<UserModel>{
     public boolean addUserModel(UserModel user){
         boolean ok = false;
         Transaction trans = Datastore.beginTransaction();
-        Key key = Datastore.createKey(TodoModel.class, user.getName());
+        Key key = Datastore.createKey(UserModel.class, user.getName());
         user.setKey(key);
         Datastore.put(user);
         trans.commit();
@@ -71,9 +68,9 @@ public class UserModelDao extends DaoBase<UserModel>{
      */
     public String getUsermodel(UserModel user){
         String json = null;
-        TodoModel model= null;
-        model = Datastore.get(TodoModel.class, Datastore.createKey("User", user.getName()));
-        TodoModelMeta tm = new TodoModelMeta();
+        UserModel model= null;
+        model = Datastore.get(UserModel.class, Datastore.createKey("User", user.getName()));
+        UserModelMeta tm = new UserModelMeta();
         json = tm.modelToJson(model);
         return json;
     }

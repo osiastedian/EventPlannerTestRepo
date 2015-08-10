@@ -1,8 +1,12 @@
 package project.dto;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import org.slim3.datastore.Attribute;
+import org.slim3.repackaged.org.json.JSONException;
+import org.slim3.repackaged.org.json.JSONObject;
 
 import project.model.UserModel;
 
@@ -13,6 +17,8 @@ public class UserDto {
     
     // Generated 
     private static final long serialVersionUID = 1L;
+    
+    private List<String> errorList = new ArrayList<String>();
     
     /**
      * User's Image source
@@ -196,4 +202,30 @@ public class UserDto {
             return false;
         }
         return true;
-}}
+    }
+    
+    /**
+     * Returns the list of errors
+     *
+     * @return the list of errors
+     */
+    public List<String> getErrorList(){
+        return this.errorList;
+    }
+    
+    public JSONObject toJSON() throws JSONException
+    {
+        JSONObject json = new JSONObject();
+            json.put("key", this.getKey());
+            json.put("name", this.getName());
+            json.put("age", this.getAge());
+            json.put("address", this.getAddress());
+            json.put("email", this.getEmail());
+            json.put("birthday", this.getBirthday());
+            //json.put("imgSrc", this.getImgSrc());
+        return json;
+        
+        
+    }
+    
+}

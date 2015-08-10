@@ -2,8 +2,15 @@ package project.service;
 
 import java.util.List;
 
+import org.slim3.datastore.Datastore;
+
+import com.google.appengine.api.datastore.Key;
+import com.google.appengine.api.datastore.Transaction;
+
 import project.dao.UserModelDao;
 import project.dto.UserDto;
+import project.meta.TodoModelMeta;
+import project.meta.UserModelMeta;
 import project.model.TodoModel;
 import project.model.UserModel;
 
@@ -40,8 +47,13 @@ public class UserService {
      *          the user to be removed
      * @return whether the transaction is successful or not.
      */
-    public boolean removeUserModel(UserDto user){
-        return true;
+    public boolean removeUserModel(Key key){
+        boolean ok = false;
+        Transaction trans = Datastore.beginTransaction();
+        Datastore.delete(key);
+        trans.commit();
+        ok = true;
+        return ok;
     }
     
     /**
@@ -51,7 +63,12 @@ public class UserService {
      * @return whether the transaction is successful or not.
      */
     public boolean updateUserModel(UserDto user){
-        return true;
+        boolean ok = false;
+        Transaction trans = Datastore.beginTransaction();
+        Datastore.put(user);
+        trans.commit();
+        ok = true;
+        return ok;
     }
     
     /**
@@ -60,7 +77,12 @@ public class UserService {
      *          the user to be updated
      * @return whether the transaction is successful or not.
      */
-    public String getUsermodel(UserDto user){
-        return null;
+    public UserDto getUsermodel(UserDto user){
+      //String json = null;
+        UserDto dto= null;
+        dto = Datastore.get(UserDto.class, Datastore.createKey("Users", user.getName()));
+        //UserModelMeta tm = new UserModelMeta();
+        //json = tm.modelToJson(model);
+        return dto;
     }
 }
