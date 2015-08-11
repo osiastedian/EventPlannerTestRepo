@@ -25,7 +25,7 @@ public class GetUserController extends Controller {
             
             UserService service = new UserService();
             user = new UserDto();
-            user.setName("James");
+            user.setName("Noville");
             user = service.getUsermodel(user);
         } catch (Exception e) {
             e.printStackTrace();
@@ -37,7 +37,7 @@ public class GetUserController extends Controller {
         response.getWriter().write(json.toString());
         
         
-        return redirect("/");
+        return null;
     }
 
 }

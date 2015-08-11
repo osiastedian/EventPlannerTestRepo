@@ -34,7 +34,8 @@ public class RemoveUserController extends Controller {
             //user.setKey(null);
             //user.setImgSrc(json.getString("imgSrc"));
             user.setName(json.getString("name"));
-            //service.removeUserModel(user.getKey());
+            service.removeUserModel(user);
+            
         }catch(Exception e){
             e.printStackTrace();
             user.getErrorList().add("Server controller error: " + e.getMessage());
@@ -44,7 +45,7 @@ public class RemoveUserController extends Controller {
         response.setContentType("application/json");
         response.getWriter().write(json.toString());
         
-        return redirect("/");
+        return null;
     }
 
 }

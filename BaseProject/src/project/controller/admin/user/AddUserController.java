@@ -51,7 +51,7 @@ public class AddUserController extends Controller {
         response.setContentType("application/json");
         response.getWriter().write(json.toString());
         
-        return redirect("/");
+        return null;
     }
 
 }

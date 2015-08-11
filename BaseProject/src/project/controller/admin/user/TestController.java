@@ -1,4 +1,4 @@
-package project.controller.admin.todo;
+package project.controller.admin.user;
 
 import org.slim3.controller.Controller;
 import org.slim3.controller.Navigation;

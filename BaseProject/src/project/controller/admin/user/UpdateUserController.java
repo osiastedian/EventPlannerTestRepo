@@ -36,7 +36,6 @@ public class UpdateUserController extends Controller {
             user.setAge(json.getInt("age"));
             //user.setBirthday(Date.parse(json.getString("date"));
             user.setEmail(json.getString("email"));
-            //user.setKey(null);
             //user.setImgSrc(json.getString("imgSrc"));
             user.setName(json.getString("name"));
             service.updateUserModel(user);
@@ -48,7 +47,7 @@ public class UpdateUserController extends Controller {
         json.put("errorList", user.getErrorList());
         response.setContentType("application/json");
         response.getWriter().write(json.toString());
-        return redirect("/");
+        return null;
         
     }
 

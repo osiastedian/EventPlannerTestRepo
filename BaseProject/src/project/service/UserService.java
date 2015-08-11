@@ -48,7 +48,10 @@ public class UserService {
      *          the user to be removed
      * @return whether the transaction is successful or not.
      */
-    public boolean removeUserModel(Key key){
+    public boolean removeUserModel(UserDto user){
+        //UserModel model = new UserModel();
+        Key key = Datastore.createKey(UserModel.class, user.getName());
+        //model.setKey(key);
         return userModelDao.removeUserModel(key);
     }
     
@@ -60,12 +63,13 @@ public class UserService {
      */
     public boolean updateUserModel(UserDto user){
         UserModel model = new UserModel();
-        model.setKey(user.getKey());
         model.setAddress(user.getAddress());
         model.setAge(user.getAge());
         model.setBirthday(user.getBirthday());
         model.setEmail(user.getEmail());
         model.setName(user.getName());
+        Key key = Datastore.createKey(UserModel.class, user.getName());
+        model.setKey(key);
         return userModelDao.updateUserModel(model);
     }
     
@@ -76,6 +80,15 @@ public class UserService {
      * @return whether the transaction is successful or not.
      */
     public UserDto getUsermodel(UserDto user){
-        return userModelDao.getUsermodel(user);
+        UserModel model = userModelDao.getUsermodel(user);
+        // User <- Model
+        user.setAge(model.getAge());
+        user.setAddress(model.getAddress());
+        user.setBirthday(model.getBirthday());
+        user.setEmail(model.getEmail());
+        user.setImgSrc(model.getImgSrc());
+        user.setKey(model.getKey());
+        user.setName(model.getName());
+        return user;
     }
 }

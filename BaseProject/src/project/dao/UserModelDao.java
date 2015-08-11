@@ -71,12 +71,12 @@ public class UserModelDao extends DaoBase<UserModel>{
      *          the user to be updated
      * @return whether the transaction is successful or not.
      */
-    public UserDto getUsermodel(UserDto user){
+    public UserModel getUsermodel(UserDto user){
         //String json = null;
-        UserDto dto= null;
-        dto = Datastore.get(UserDto.class, Datastore.createKey("User", user.getName()));
+        UserModel model= null;
+        model = Datastore.get(UserModel.class, Datastore.createKey(UserModel.class, user.getName()));
         //UserModelMeta tm = new UserModelMeta();
         //json = tm.modelToJson(model);
-        return dto;
+        return model;
     }
 }

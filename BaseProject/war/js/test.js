@@ -7,24 +7,24 @@ $(document).ready(function() {
 	$('#test').click(function() {
 		jsonData = {
 				data: JSON.stringify({
-					"description":"DescriptionTest",
-					"finished_quantity":1234,
-					"id":0,
-					"key":"aglub19hcHBfaWRyGAsSCVRvZG9Nb2RlbCIJVGl0bGVUZXN0DA",
-					"title":"TitleTest",
-					"total_quantity":12345,
-					"version":1
+					address: "address test",
+					age : 123456,
+					email:"asdfgh@gmail",
+					name: "Noville"
+		            //user.setBirthday(Date.parse(json.getString("date"));
+		            //user.setKey(null);
+		            //user.setImgSrc(json.getString("imgSrc"));
 				})
 		};
-		alert('Test Remove');
+		alert('Test Add');
 		$.ajax({
-			url: 'addTodo',
+			url: 'getUser',
 			type: 'POST',
 			data: jsonData,
 			dataType: 'json',
 			success: function(data, status, jqXHR){
 				if(data.errorList.length == 0) {
-					alert('Successful');
+					alert(data);
 				} else {
 					alert('Unsuccessful');
 				}
