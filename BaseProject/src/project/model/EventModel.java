@@ -6,10 +6,19 @@ import com.google.appengine.api.datastore.Key;
 
 import org.slim3.datastore.Attribute;
 import org.slim3.datastore.Model;
+import org.slim3.repackaged.org.json.JSONException;
+import org.slim3.repackaged.org.json.JSONObject;
+
+import project.dto.EventModelDto;
 
 @Model(schemaVersion = 1)
 public class EventModel implements Serializable {
 
+
+    /**
+     * Event ID container
+     */
+    private int eventID;
     /**
      *  Event Name container.
      */
@@ -20,15 +29,44 @@ public class EventModel implements Serializable {
     private String description;
 
     /**
+     * @return the event ID
+     */
+    public int getEventID(){
+        return eventID;
+    }
+    /**
+     * @param id the eventID to set
+     */
+    public void setEventID(int id){
+        this.eventID = id;       
+    }
+    /**
      * @return the eventName
      */
     public String getEventName() {
         return eventName;
     }
+    /**
+     * @param eventName the Event name to set
+     */
+    public void setEventName(String eventName) {
+        this.eventName = eventName;
+    }
 
-    
-    
-    private static final long serialVersionUID = 1L;
+    /**
+     * @return the description
+     */
+    public String getDescription() {
+        return description;
+    }
+
+    /**
+     * @param description the description to set
+     */
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
 
     @Attribute(primaryKey = true)
     private Key key;
@@ -104,16 +142,14 @@ public class EventModel implements Serializable {
         return true;
     }
 
-    public void setEventName(String eventName) {
-        this.eventName = eventName;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
+    public JSONObject toJSON() throws JSONException
+    {
+        JSONObject json = new JSONObject();
+        json.put("key", this.getKey());
+        json.put("eventID", this.getEventID());
+        json.put("eventName",this.getEventName());
+        json.put("description", this.getDescription());
+        return json;
     }
     
 }

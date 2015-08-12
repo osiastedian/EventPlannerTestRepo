@@ -1,7 +1,6 @@
 /**
  * 
  */
-
 $(document).ready(function() {
 
 	$('#test').click(function() {
@@ -24,7 +23,7 @@ $(document).ready(function() {
 			dataType: 'json',
 			success: function(data, status, jqXHR){
 				if(data.errorList.length == 0) {
-					alert(data);
+					alert(data.name);
 				} else {
 					alert('Unsuccessful');
 				}
@@ -36,3 +35,5 @@ $(document).ready(function() {
 	});
 	
 });
+
+

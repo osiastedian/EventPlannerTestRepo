@@ -7,21 +7,66 @@ import com.google.appengine.api.datastore.Key;
 
 import org.slim3.datastore.Attribute;
 import org.slim3.datastore.Model;
+import org.slim3.repackaged.org.json.JSONException;
+import org.slim3.repackaged.org.json.JSONObject;
 
 import project.model.EventModel;
 
 @Model(schemaVersion = 1)
 public class EventTodoModel implements Serializable {
     
-    
+    /**
+     * Event ID container
+     */
+    private int eventID;
+    /**
+     * Event title container
+     */
+    private String eventTitle;
+    /**
+     * Todo Id associated with specific event
+     */
     private int todoId = -1;
+    /**
+     *   Status of EventTodo.
+     */
+    private boolean todoStatus;
+    
+    /**
+     * 
+     * @return the event ID
+     * 
+     */
+    public int getEventID(){
+        return this.eventID;
+    }
+    /**
+     * 
+     * @param id the id to be set
+     */
+    public void setEventID(int id){
+        this.eventID = id;
+    }
+    /**
+     * 
+     * @return the event title
+     */
+    public String getEventTitle(){
+        return this.eventTitle;
+    }
+    /**
+     * 
+     * @param title the title to be set
+     */
+    public void setEventTitle(String title){
+        this.eventTitle = title;
+    }
     /**
      * @return the todoId
      */
     public int getTodoId() {
         return todoId;
     }
-
     /**
      * @param todoId the todoId to set
      */
@@ -29,11 +74,14 @@ public class EventTodoModel implements Serializable {
         this.todoId = todoId;
     }
 
-    private boolean todoStatus;
-    /**
-    *   Status of EventTodo.
-    */
+ 
+    public boolean getTodoStatus() {
+        return todoStatus;
+    }
 
+    public void setTodoStatus(boolean todoStatus) {
+        this.todoStatus = todoStatus;
+    }
    
     private static final long serialVersionUID = 1L;
 
@@ -111,11 +159,15 @@ public class EventTodoModel implements Serializable {
         return true;
     }
 
-    public boolean getTodoStatus() {
-        return todoStatus;
-    }
-
-    public void setTodoStatus(boolean todoStatus) {
-        this.todoStatus = todoStatus;
+    
+    
+    public JSONObject toJSON() throws JSONException
+    {
+        JSONObject json = new JSONObject();
+        json.put("key", this.getKey());
+        json.put("eventID",this.getEventID());
+        json.put("eventTitle", this.getEventTitle());
+        json.put("todoId", this.getTodoId());
+        return json;
     }
 }

@@ -1,12 +1,18 @@
 package project.dto;
 
 import org.slim3.datastore.Attribute;
+import org.slim3.repackaged.org.json.JSONException;
+import org.slim3.repackaged.org.json.JSONObject;
 
 import com.google.appengine.api.datastore.Key;
 
 public class EventModelDto {
 private static final long serialVersionUID = 1L;
 
+    /**
+     * Event ID container
+     */
+    private int eventID;
     /**
      *  Event Name container.
      */
@@ -17,12 +23,23 @@ private static final long serialVersionUID = 1L;
     private String description;
 
     /**
+     * @return the event ID
+     */
+    public int getEventID(){
+        return eventID;
+    }
+    /**
+     * @param id the eventID to set
+     */
+    public void setEventID(int id){
+        this.eventID = id;       
+    }
+    /**
      * @return the eventName
      */
     public String getEventName() {
         return eventName;
     }
-
     /**
      * @param eventName the Event name to set
      */
@@ -119,9 +136,14 @@ private static final long serialVersionUID = 1L;
         return true;
     }
 
-    public String getTitle() {
-        return null;
-
+    public JSONObject toJSON() throws JSONException
+    {
+        JSONObject json = new JSONObject();
+        json.put("key", this.getKey());
+        json.put("eventID", this.getEventID());
+        json.put("eventName",this.getEventName());
+        json.put("description", this.getDescription());
+        return json;
     }
 
 }

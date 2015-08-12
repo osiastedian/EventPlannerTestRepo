@@ -6,6 +6,7 @@ import org.slim3.datastore.DaoBase;
 import org.slim3.datastore.Datastore;
 
 import com.google.appengine.api.datastore.Transaction;
+import com.google.appengine.api.datastore.Key;
 
 import project.model.EventModel;
 
@@ -32,7 +33,10 @@ public class EventModelDao extends DaoBase<EventModel>{
      */
     public List<EventModel> getAllEvent()
     {
-        return null;
+        Transaction trans = Datastore.beginTransaction();
+        List<EventModel> list = (List<EventModel>) Datastore.query(EventModel.class).asList();
+        trans.commit();
+        return list;
     }
     /**
      * Gets all events with particular sorting order.
@@ -57,11 +61,14 @@ public class EventModelDao extends DaoBase<EventModel>{
      */
     public boolean addEvent(EventModel e)
     {
-        //e.setKey(Datastore.createKey("Event",e.getTitle()));
+        boolean ok = false;
         Transaction trans = Datastore.beginTransaction();
+        Key key = Datastore.createKey(EventModel.class, e.getEventName());
+        e.setKey(key);
         Datastore.put(e);
         trans.commit();
-        return false;
+        ok = true;
+        return ok;
     }
     /**
      * Removes an Event object in the Datastore using EventDto.
@@ -70,10 +77,14 @@ public class EventModelDao extends DaoBase<EventModel>{
      *            the refernce to be added.
      * @return Whether transaction is succesful or not.
      */
-    public boolean removeEvent(EventModel e)
+    public boolean removeEvent(Key key)
     {
-
-        return false;
+        boolean ok = false;
+        Transaction trans = Datastore.beginTransaction();
+        Datastore.delete(key);
+        trans.commit();
+        ok = true;
+        return ok;
     }
     /**
      * Updates an Event object in the Datastore using EventDto.
@@ -84,6 +95,11 @@ public class EventModelDao extends DaoBase<EventModel>{
      */
     public boolean updateEvent(EventModel e)
     {
-        return false;
+        boolean ok = false;
+        Transaction trans = Datastore.beginTransaction();
+        Datastore.put(e);
+        trans.commit();
+        ok = true;
+        return ok;
     }
 }
