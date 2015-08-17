@@ -1,5 +1,8 @@
 package project.dto;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.slim3.datastore.Attribute;
 import org.slim3.repackaged.org.json.JSONException;
 import org.slim3.repackaged.org.json.JSONObject;
@@ -9,6 +12,8 @@ import project.model.EventTodoModel;
 import com.google.appengine.api.datastore.Key;
 
 public class EventTodoDto {
+    
+    private List<String> errorList = new ArrayList<String>();
     /**
      * Event ID container
      */
@@ -151,6 +156,9 @@ public class EventTodoDto {
             return false;
         }
         return true;
+    }
+    public List<String> getErrorList(){
+        return this.errorList;
     }
     public JSONObject toJSON() throws JSONException
     {
