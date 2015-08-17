@@ -91,13 +91,55 @@
    <section id="container">	    
 	    <div class="container">
 		   	<div class="row" id="AddToDoContainer">
+		   	
+		   		<!-- ADDED SECTION -->
+    						<div class='container'>
+				    
+							        <form class='form-horizontal'>
+				
+							            <div class='row col-xs-6' style='margin-left:290px;'>
+							               <div class='input-group'>
+							                  <span class='input-group-addon' id='sizing-addon2'><i class='glyphicon glyphicon-dashboard'></i></span>
+							                  <input id="quantity" type="number" value="1" class="form-control" minimum="1">
+							                  <!-- Palihug ilis sa type basta number dapat ihatag ana -->
+							                </div>
+							                <br>
+							                <div class='input-group'>
+							                  <span class='input-group-addon' id='sizing-addon2'><i class='glyphicon glyphicon-list-alt'></i></span>
+							                  <input id="title" type='text' class='form-control' placeholder='Title' aria-describedby='sizing-addon2'>
+							                </div>
+							                <br>
+							                <div class='input-group'>
+							                  <span class='input-group-addon' id='sizing-addon2'><i class='glyphicon glyphicon-screenshot'></i></span>
+							                  <textarea id= "description" class='form-control' placeholder='Description' aria-describedby='sizing-addon2'></textarea>
+							                </div>
+							                <br>
+							                <div class='input-group'>
+							                  <span class='input-group-addon' id='sizing-addon2'><i class='glyphicon glyphicon-dashboard'></i></span>
+							                  <select class='form-control' placeholder='To' aria-describedby='sizing-addon2'>
+							                    <option>Event1</option>
+							                    <option>Event2</option>
+							                    <option>Event3</option>
+							                  </select>
+							                </div>
+							                <br>
+							                <div class='input-group' style='margin-top:10px;'>
+							                    <input id ="submitButton" type='submit' value='Add' class='btn btn-primary form-control' style='background:#F05F40;color:white;border-radius:10px;'>
+							                </div>
+							            </div>
+				
+							        </form>     
+							    
+							    </div>;
+    
+    <!-- END ADD -->
+    
+		   	
 			</div>
     	</div>
 	    
 	</section>
     <br>
-    
-    
     <section id="contact" class="bg-dark">
         <div class="container ">
             <div class="row">
@@ -142,7 +184,8 @@
     <!-- Custom Theme JavaScript -->
     <script src="js/creative.js"></script>
     
-    <script src="js/ajax_addToDo.js"></script>
+    <!-- <script src="js/ajax_addToDo.js"></script>-->
+    <script src="js/ajax_ianSampleRequest.js"></script>
 
 </body>
 

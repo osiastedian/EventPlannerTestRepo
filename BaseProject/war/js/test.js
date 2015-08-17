@@ -23,9 +23,19 @@ $(document).ready(function() {
 			dataType: 'json',
 			success: function(data, status, jqXHR){
 				if(data.errorList.length == 0) {
-					alert(data.name);
+					$('#txtContent').val('');
+					retrieveTweetList('Entry saved successfully!');
 				} else {
-					alert('Unsuccessful');
+					var msg = "";
+					for (var i = 0; i < data.errorList.length; i++)
+						msg += data.errorList[i] + "\n";
+					$('#errorDisplay').html(msg);
+				}
+				if(data.errorList.length!=0 || data.errorList != null) {
+					
+					alert("Added Successfully!");
+				} else {
+					alert('Unsuccessful.');
 				}
 			},
 			error: function(jqXHR, status, error) {
