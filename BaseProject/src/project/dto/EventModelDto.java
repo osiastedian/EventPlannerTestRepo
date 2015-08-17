@@ -1,5 +1,8 @@
 package project.dto;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.slim3.datastore.Attribute;
 import org.slim3.repackaged.org.json.JSONException;
 import org.slim3.repackaged.org.json.JSONObject;
@@ -9,6 +12,7 @@ import com.google.appengine.api.datastore.Key;
 public class EventModelDto {
 private static final long serialVersionUID = 1L;
 
+    List<String> errorList = new ArrayList<String>();
     /**
      * Event ID container
      */
@@ -145,5 +149,10 @@ private static final long serialVersionUID = 1L;
         json.put("description", this.getDescription());
         return json;
     }
+    public List<String> getErrorList() {
+        // TODO Auto-generated method stub
+        return this.errorList;
+    }
+    
 
 }

@@ -1,7 +1,12 @@
+
 package project.service;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import org.slim3.datastore.Datastore;
+
+import com.google.appengine.api.datastore.Key;
 
 import project.dao.EventModelDao;
 import project.dto.EventModelDto;
@@ -88,10 +93,10 @@ public class EventService {
          *            the refernce to be added.
          * @return Whether transaction is succesful or not.
          */
-        public boolean removeEvent(EventModel e)
+        public boolean removeEvent(EventModelDto e)
         {
-
-            return false;
+            Key key = Datastore.createKey(EventModel.class, e.getEventID());
+            return dao.removeEvent(key);
         }
         /**
          * Updates an Event object in the Datastore using EventDto.
@@ -100,8 +105,14 @@ public class EventService {
          *            the refernce to be added.
          * @return Whether transaction is succesful or not.
          */
-        public boolean updateEvent(EventModel e)
+        public boolean updateEvent(EventModelDto e)
         {
-            return false;
-    }
+            EventModel model = new EventModel();
+            model.setDescription(e.getDescription());
+            model.setEventID(e.getEventID());
+            model.setEventName(e.getEventName());
+            Key key = Datastore.createKey(EventModel.class, e.getEventID());
+            model.setKey(key);
+            return dao.updateEvent(model);
+        }
 }
