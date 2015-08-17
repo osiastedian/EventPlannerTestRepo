@@ -1,5 +1,6 @@
 package project.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import project.dao.EventModelDao;
@@ -38,9 +39,18 @@ public class EventService {
          *
          * @return List of events.
          */
-        public List<EventModel> getAllEvent()
+        public List<EventModelDto> getAllEvents()
         {
-            return null;
+            List<EventModel> models = dao.getAllEvent();
+            List<EventModelDto> dtos = new ArrayList<EventModelDto>();
+            for(EventModel model: models){
+                EventModelDto temp = new EventModelDto();
+                temp.setEventName(model.getEventName());
+                temp.setDescription(model.getDescription());
+                temp.setEventID(model.getEventID());
+                dtos.add(temp);
+            }
+            return dtos;
         }
         /**
          * Gets all events with particular sorting order.
@@ -66,9 +76,9 @@ public class EventService {
         public boolean addEvent(EventModelDto e)
         {
             EventModel model = new EventModel();
-            model.setKey(e.getKey());
-           // model.setTitle(e.getTitle());
-            model.setVersion(e.getVersion());
+            model.setEventName(e.getEventName());
+            model.setEventID(e.getEventID());
+            model.setDescription(e.getDescription());
             return dao.addEvent(model);
         }
         /**

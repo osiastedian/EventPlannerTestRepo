@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" >
 
 <head>
 
@@ -18,11 +18,9 @@
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'> -->
     <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css" type="text/css">
-
-    <!-- Plugin CSS -->
+	<!-- Plugin CSS -->
     <link rel="stylesheet" href="css/animate.min.css" type="text/css">
-
-    <!-- Custom CSS -->
+	<!-- Custom CSS -->
     <link rel="stylesheet" href="css/creative.css" type="text/css">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -34,8 +32,8 @@
 
 </head>
 
-<body id="page-top" ng-app="">
-    <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
+<body id="page-top">
+	<nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
     <div class="container-fluid">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
@@ -116,11 +114,13 @@
 							                <br>
 							                <div class='input-group'>
 							                  <span class='input-group-addon' id='sizing-addon2'><i class='glyphicon glyphicon-dashboard'></i></span>
-							                  <select class='form-control' placeholder='To' aria-describedby='sizing-addon2'>
-							                    <option>Event1</option>
-							                    <option>Event2</option>
-							                    <option>Event3</option>
-							                  </select>
+							                  <!-- Test Angular -->
+							                  <div ng-app="addTodoApp" ng-controller="generateEvents">
+							                  <span ng-repeat="event in events">{{event.eventName}}</span>
+												<select class='form-control' placeholder='To' aria-describedby='sizing-addon2'>
+													<option ng-repeat="event in data">{{event.eventName}}</option>
+												</select>
+											 </div>
 							                </div>
 							                <br>
 							                <div class='input-group' style='margin-top:10px;'>
@@ -159,18 +159,9 @@
             </div>
         </div>
     </section>
-
-    
-
-
-
-
-
-
-
-
-    <!-- Angular -->
+	<!-- Angular -->
     <script src="js/angular.min.js"></script>
+    
     <!-- jQuery -->
     <script src="js/jquery.js"></script>
 
@@ -186,6 +177,8 @@
     
     <!-- <script src="js/ajax_addToDo.js"></script>-->
     <script src="js/ajax_ianSampleRequest.js"></script>
+    <script src="js/angular_ianSample.js"></script>
+    
 
 </body>
 
