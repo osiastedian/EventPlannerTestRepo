@@ -80,42 +80,22 @@
         </div>
         <!-- /.container-fluid -->
     </nav>
-	<section class="bg-dark" id="Events">
+	<section class="bg-dark" id="container">
         <div class="container text-center">
             <h1>Profile</h1>
         </div>
     </section>
-	<section id="profile" class="bg-light" ng-app="" ng-init="
-			person = {
-				name: 'James Suson',
-				age: '20',
-				email: 'jvsuson17@gmail.com',
-				birthday: '01/17/95',
-				address: 'Consolacion'
-				
-			}
-	">
-		<div class="container text-center form-group">
-			<p>
-			<!--<img src="{{person.src}}" width="200" height="200"/>-->
-			</p>
-			<p>
-            Name: {{person.name}}
-			</p>
-			<p>
-            Age: {{person.age}}
-			</p>
-			<p>
-            E-mail: {{person.email}}
-			</p>
-			<p>
-            Birthday: {{person.birthday}}
-			</p>
-			<p>
-            Address: {{person.address}}
-			</p>
-		</div>
+    
+    
+    
+    <section id="container">	    
+	    <div class="container">
+		   	<div class="row" id="ProfileContainer">
+			</div>
+    	</div>	    
 	</section>
+	
+	
     <section id="contact" class="bg-dark">
         <div class="container ">
             <div class="row">
@@ -159,6 +139,8 @@
     <script src="js/wow.min.js"></script>
     <!-- Custom Theme JavaScript -->
     <script src="js/creative.js"></script>
+    <script src="js/ajax_profile.js"></script>
+    
 
 </body>
 
