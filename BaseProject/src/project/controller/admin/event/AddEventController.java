@@ -12,11 +12,10 @@ public class AddEventController extends Controller {
     public Navigation run() throws Exception {
         EventService service = new EventService();
         EventModelDto dto = new EventModelDto();
-        dto.setEventName("School!");
-        dto.setEventID(2);
-        dto.setDescription("Describes an event held by a particular school.");
+        dto.setEventName("Japanese Today");
+        dto.setEventID(4);
+        dto.setDescription("Konnichiwa!");
         service.addEvent(dto);
-        
         return null;
     }
 }

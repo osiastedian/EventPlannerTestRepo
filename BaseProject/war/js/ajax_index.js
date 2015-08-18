@@ -29,17 +29,19 @@ $(document).ready(function() {
 		getDummyData();    // Remove the getDummyData function if URL is ready.
 		$.ajax({
 			//url: 'url?', // Supply the url? if URL ready. Or just try what happens if you un.comment this line.
+			url:'http://localhost:8888/admin/event/get', // MODIFIED
+			data: responseJSON, // MODIFIED
 			type: 'GET',
 			success: function(data, status, jqXHR){
 				var htmlFormattedListString = "";
-				$.each(responseJSON.eventList, function(index, value) {
+				$.each(data.events, function(index, value) {// MODIFIED
 					htmlFormattedListString += "<div class='col-lg-3 col-md-6 text-center'>" +
 		                					   "<div class='service-box'>" +
 		                					   "<a href='/event'>" + //Make the link dynamic if ready.
 		                					   "<i class='fa fa-4x fa-diamond wow bounceIn text-primary'></i>" +
 		                					   "</a>" +
-		                					   "<h3>" + value.eventName +"</h3>" +
-		                    				   "<p class='text-muted'>" + value.eventDescription +"</p>" +
+		                					   "<h3>" + value.eventName +"</h3>" +// MODIFIED
+		                    				   "<p class='text-muted'>" + value.description +"</p>" +// MODIFIED
 		                    				   "</div></div>";
 					return index < 3;
 				});

@@ -9,14 +9,7 @@ $(document).ready(function() {
 	
 	function getDummyData() {
 		// Modify it... It's Dynamic!
-		responseJSON = {todoList:[
-		                           {todoType:"Action", todoName:"Arrange Chairs", todoDescription:"A good party comes with good chairs."},
-		                           {todoType:"Action", todoName:"Buy a Cake",  todoDescription:"Nothing is better than a cake."},
-		                           {todoType:"Quantitative", todoName:"Buy 13 Kinds of Round Fruits",  todoDescription:"To prosper your new year's life."},
-		                           {todoType:"Quantitative", todoName:"Buy 5 Cans of Soda",  todoDescription:"Party with friends is fun with poping sodas."},
-		                           {todoType:"Action", todoName:"Setup Wifi Network",  todoDescription:"Everybody loves to share their moments online."}
-		                           ]
-					   };
+		responseJSON = null;
 		
 		// Try an Empty Response!
 		//responseJSON = {todoList:[]};
@@ -26,16 +19,18 @@ $(document).ready(function() {
 		$("#TodoListContainer").empty();
 		getDummyData();    // Remove the getDummyData function if URL is ready.
 		$.ajax({
-			//url: 'url?', // Supply the url? if URL ready. Or just try what happens if you un.comment this line.
+			url: 'http://localhost:8888/admin/todo/getAllTodos',//url: 'url?', // Supply the url? if URL ready. Or just try what happens if you un.comment this line.
+			data: responseJSON,
 			type: 'GET',
 			success: function(data, status, jqXHR){				
 				var htmlFormattedListString = "<table class='table' align='center' style='width:1200px;'>" +
 				"<tr><th>Type</th><th>Name</th><th colspan='2'>Description</th></tr>";
-				$.each(responseJSON.todoList, function(index, value) {
+				resposeJSON = data;
+				$.each(data, function(index, value) {
 					htmlFormattedListString += 	"<tr>" +
-												"<td>" + value.todoType + "</td>" +
-												"<td>" + value.todoName + "</td>" +
-												"<td>" + value.todoDescription + "</td>" +
+												"<td>" + value.total_quantity + "</td>" +
+												"<td>" + value.title + "</td>" +
+												"<td>" + value.description + "</td>" +
 												"<td>" + //Need for implementation below...
 												"<input type='submit' value='+' class='btn btn-primary form-control' style='background:#F05F40;color:white;width:50px;'>" +
 												"</td></tr>"; 

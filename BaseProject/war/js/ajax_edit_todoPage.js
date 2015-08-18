@@ -27,15 +27,17 @@ $(document).ready(function() {
 		getDummyData();    // Remove the getDummyData function if URL is ready.
 		$.ajax({
 			//url: 'url?', // Supply the url? if URL ready. Or just try what happens if you un.comment this line.
+			url: 'http://localhost:8888/admin/todo/getAllTodos',//MODIFIED
+			data: responseJSON,//MODIFIED
 			type: 'GET',
 			success: function(data, status, jqXHR){				
 				var htmlFormattedListString = "<table class='table' align='center' style='width:1200px;'>" +
-				"<tr><th>Type</th><th>Name</th><th>Description</th></tr>";
-				$.each(responseJSON.todoList, function(index, value) {
+				"<tr><th>Quantity</th><th>Name</th><th>Description</th></tr>";
+				$.each(data, function(index, value) {// MODIFIED
 					htmlFormattedListString += 	"<tr>" +
-												"<td>" + value.todoType + "</td>" +
-												"<td>" + value.todoName + "</td>" +
-												"<td>" + value.todoDescription + "</td></tr>"; 
+												"<td>" + value.total_quantity + "</td>" + 	// MODIFIED
+												"<td>" + value.title + "</td>" +  			//MODIFIED
+												"<td>" + value.description + "</td></tr>"; 	//MODIFIED
 				});	
 				
 				if(htmlFormattedListString == "<table class='table' align='center' style='width:1200px;'><tr><th>Type</th><th>Name</th><th colspan='2'>Description</th></tr>")

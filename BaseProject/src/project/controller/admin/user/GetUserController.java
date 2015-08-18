@@ -7,6 +7,9 @@ import org.slim3.repackaged.org.json.JSONObject;
 
 //import com.google.appengine.api.datastore.Key;
 
+
+
+
 //import project.dto.TodoDto;
 import project.dto.UserDto;
 //import project.model.UserModel;
@@ -22,10 +25,11 @@ public class GetUserController extends Controller {
         JSONObject json = new JSONObject();
         UserDto user = null;
         try {
-            
+            System.out.println((String)this.requestScope("data"));
+            json = new JSONObject((String)this.requestScope("data"));
             UserService service = new UserService();
             user = new UserDto();
-            user.setName("Noville");
+            user.setName(json.getString("username"));
             user = service.getUsermodel(user);
         } catch (Exception e) {
             e.printStackTrace();

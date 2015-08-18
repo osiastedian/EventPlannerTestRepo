@@ -4,30 +4,35 @@
 
 $(document).ready(function() {
 	
-	var responseJSON = null;
-	
+	var username_html = 'Noville';
+	var jsonData = {
+			data: JSON.stringify({
+				username : username_html,
+			})
+	};
 	getProfile();
 	
 	function getDummyData() {
 		// Modify it... It's Dynamic!
-		responseJSON = {person:[
-		                       {name: 'James Suson',age: '20',email: 'jvsuson17@gmail.com',	birthday: 'January 17, 1995',address: 'Consolacion'}]
+		//responseJSON = {person:[
+		//                       {name: 'James Suson',age: '20',email: 'jvsuson17@gmail.com',	birthday: 'January 17, 1995',address: 'Consolacion'}]
 		                           
-					   };
+		//			   };
 		
 		// Try an Empty Response!
 		//responseJSON = {eventList:[]};
 	}
-	
 	function getProfile() {
 		$("#ProfileContainer").empty();
-		getDummyData();    // Remove the getDummyData function if URL is ready.
+		//getDummyData();    // Remove the getDummyData function if URL is ready.
 		$.ajax({
-			//url: 'url?', // Supply the url? if URL ready. Or just try what happens if you un.comment this line.
+			url: 'http://localhost:8888/admin/user/getUser',
 			type: 'GET',
+			data: jsonData,
+			dataType: 'json',
 			success: function(data, status, jqXHR){
 				var htmlFormattedListString = "";
-				$.each(responseJSON.person, function(index, value) {
+				$.each(data.user, function(index, value) {
 					htmlFormattedListString += "<div class='container text-center form-group'>" +
 												"<p>"+
 												"</p>"+
