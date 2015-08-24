@@ -471,6 +471,35 @@ img::-moz-selection {
     background: 0 0;
 }
 
+#skills span {
+    top: -30px;
+    left: 2%;
+    position: relative;
+    font-size: 1.4em;
+    font-weight: bolder;
+    font-family: monospace;
+    color: #fff;
+}
+
+progress {
+    background-color: #f3f3f3;
+    border: 0;
+    height: 2.5em;
+    width: 100%;
+}
+
+progress::-webkit-progress-bar {
+    background-color: #F05F40;
+}
+
+progress::-webkit-progress-value {
+    background-color: #F05F40;
+}
+
+progress::-moz-progress-bar {
+    background-color: #F05F40;
+}
+
 body {
     webkit-tap-highlight-color: #222;
 }
