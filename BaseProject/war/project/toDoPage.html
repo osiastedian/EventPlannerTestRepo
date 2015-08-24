@@ -9,7 +9,6 @@
     <meta name="description" content="">
     <meta name="author" content=""-->
     <meta name="viewport" content="width-device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
      <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
     <link href="css/eventPage/bootstrap.min.css" rel="stylesheet">
     <link href="css/eventPage/custom.css" rel="stylesheet">
@@ -49,7 +48,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand page-scroll" href="index.html">Events Planner</a>
+                <a class="navbar-brand page-scroll" href="/index">Events Planner</a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -62,10 +61,10 @@
                         <a class="page-scroll" href="/events">Events</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="/toDoPage">To Do Page</a>
+                        <a class="page-scroll" href="/searchTodo">To Do Page</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="/edit_toDoPage">Edit To Do Page</a>
+                        <a class="page-scroll" href="/editTodo">Edit To Do Page</a>
                     </li>
                     <li>
                         <a class="page-scroll" href="/plusTodo">+ Todo</a>
@@ -76,6 +75,7 @@
                     <li>
                         <a class="page-scroll" href="/settings">Setting</a>
                     </li>
+
                     
                 </ul>
             </div>
@@ -83,114 +83,51 @@
         </div>
         <!-- /.container-fluid -->
     </nav>
-    <section class="bg-dark" id="Events">
-        <div class="container text-center">
-            <h1>TO DO PAGE</h1>
-        </div>
-    </section>
-    <img src="img/img_eventPage/party.jpg">
-
-     <sectionevent>
-    <div class="container bg-blue">
-    
-    <p><div class="people" id="nav">
-
-            &nbsp; &nbsp;People Involved
-            <p>&nbsp; &nbsp;<img src="img/img_eventPage/p1.png"> &nbsp;<img src="img/img_eventPage/p2.png"> &nbsp;<img src="img/img_eventPage/p3.png"> &nbsp;<img src="img/img_eventPage/p4.png"> </p>
-
-            <p>&nbsp; &nbsp;<img src="img/img_eventPage/p5.png"> &nbsp;<img src="img/img_eventPage/p6.png"> &nbsp;<img src="img/img_eventPage/p7.png">
-            <a href="#">
-                <div class="rectangle-box-addpeople" style="cursor:pointer" >
-                    <div class="rectangle-content">
-                        <div>
-                            <span>+</span>
-                        </div>
-                    </div>
-                </div>
-            </a>
-            </p>        
-        </div>  
-
-        <div class="verticalLine" id="section">
-            <a href="#">
-            <div class='rectangle-box-addTask' style="cursor:pointer">
-                 <div class='rectangle-content'><div><span>+Add another task</span></div></div>
-            </div>
-            </a>
-
-            <p style="line-height:0">     
-            <div class="checkbox">
-                <label><input class="onlinecheckbox checkboxlist" type="checkbox" value="" ></label>
-                &nbsp;&nbsp;<div class='rectangle-box-todocheck '>
-                <div class="rectangle-content">
-                    <div>
-                        <span>Buy a Cake</span>
-                    </div>
-                </div>
-                </div>
-            </div>
-            </p>
-
-            <p style="line-height:0"> 
-            <br>    
-            <div class="checkbox">
-                <label><input class="onlinecheckbox checkboxlist" type="checkbox" value="" ></label>
-                &nbsp;&nbsp;<div class='rectangle-box-todoyet '>
-                <div class="rectangle-content">
-                    <div>
-                        <span>Clean House</span>
-                    </div>
-                </div>
-                </div>
-            </div>
-            </p>
-
-            <p style="line-height:0"> 
-            <br>    
-            <div class="checkbox">
-                <label><input class="onlinecheckbox checkboxlist" type="checkbox" value="" ></label>
-                &nbsp;&nbsp;<div class='rectangle-box-todoyet '>
-                <div class="rectangle-content">
-                    <div>
-                        <span>Buy 20 Plastic Cups</span>
-                    </div>
-                </div>
-                </div>
-            </div>
-            </p>
-
-            <p style="line-height:0"> 
-            <br>    
-            <div class="checkbox">
-                <label><input class="onlinecheckbox checkboxlist" type="checkbox" value="" ></label>
-                &nbsp;&nbsp;<div class='rectangle-box-todocheck '>
-                <div class="rectangle-content">
-                    <div>
-                        <span>Buy Drinks</span>
-                    </div>
-                </div>
-                </div>
-            </div>
-            </p>
-
-            <p style="line-height:0"> 
-            <br>    
-            <div class="checkbox">
-                <label><input class="onlinecheckbox checkboxlist" type="checkbox" value="" ></label>
-                &nbsp;&nbsp;<div class='rectangle-box-todoyet '>
-                <div class="rectangle-content">
-                    <div>
-                        <span>Download Party Songs</span>
-                    </div>
-                </div>
-                </div>
-            </div>
-            </p>
-        </div>
-    </p>
-    </div> 
-     </section>
-    
+	
+	<section id="skills" style="padding:0px">
+		<progress value="0" max="100"></progress><span></span>
+	</section>
+	<section id="container" style="padding:0px">
+	    <div class="container">
+		    <div class="row">
+		    	<h1>Todo List</h1>
+		    </div>
+		    <table style="width:100%">
+		    	<tr>
+		    		<td align="left">
+			            <form action="" class="search-form">
+			                <div class="form-group has-feedback">
+			                    <label for="search" class="sr-only">Search</label>
+			                    <input type="text" class="form-control" name="search" id="search" placeholder="Search">
+			                    <span class="glyphicon glyphicon-search form-control-feedback"></span>
+			                </div>
+			            </form>
+		    		</td>
+		    		<td align="right">
+		    			<a href='/plusTodo'>
+		    				<input type='submit' value=' + Add Todo ' class='btn btn-primary' style='background:#F05F40;color:white;'>
+		    			</a>
+		    		</td>
+		    	</tr>
+		    	<tr>
+			    	<td align="left">
+			    		<form action="" class="radio">
+				    		&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="category" value="Allsss" id="All" checked>All&nbsp;&nbsp;
+				    		&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="category" value="Action" id="Action">Action&nbsp;&nbsp;			    		
+				    		&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="category" value="Quantity" id="Quantity">Quantity
+				    		
+			    		</form>
+					</td>
+		    	</tr>
+		    </table>
+	    </div>
+	    
+	    <div class="container">
+	   	<div class="row" id="TodoListContainer">
+		</div>
+    </div>
+	    
+	</section>
     
     <section id="contact" class="bg-dark">
         <div class="container ">
@@ -210,15 +147,7 @@
                 </div>
             </div>
         </div>
-    </sectionevent>
-
-    
-
-
-
-
-
-
+    </section>
 
 
     <!-- Angular -->
@@ -236,6 +165,7 @@
     <!-- Custom Theme JavaScript -->
     <script src="js/creative.js"></script>
 
+	<script src="js/ajax_todoPage.js"></script>
 </body>
 
 </html>
