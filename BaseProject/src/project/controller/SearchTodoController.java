@@ -7,6 +7,6 @@ public class SearchTodoController extends Controller {
 
     @Override
     public Navigation run() throws Exception {
-        return forward("/project/searchtodo.html");
+        return forward("/project/toDoPage.html");
     }
 }
