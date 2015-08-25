@@ -8,5 +8,6 @@ public class EventController extends Controller {
     @Override
     public Navigation run() throws Exception {
         return forward("project/eventPage.html");
+        //return forward("/project/edit_toDoPage.html");
     }
 }

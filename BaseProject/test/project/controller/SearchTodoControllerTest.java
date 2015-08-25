@@ -10,7 +10,7 @@ public class SearchTodoControllerTest extends ControllerTestCase {
     @Test
     public void run() throws Exception {
         tester.start("/searchTodo");
-        SearchTodoController controller = tester.getController();
+        TodosController controller = tester.getController();
         assertThat(controller, is(notNullValue()));
         assertThat(tester.isRedirect(), is(false));
         assertThat(tester.getDestinationPath(), is("/searchTodo.jsp"));

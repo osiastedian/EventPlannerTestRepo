@@ -9,7 +9,6 @@
     <meta name="description" content="">
     <meta name="author" content=""-->
     <meta name="viewport" content="width-device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
      <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
     <link href="css/eventPage/bootstrap.min.css" rel="stylesheet">
     <link href="css/eventPage/custom.css" rel="stylesheet">
@@ -49,11 +48,11 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand page-scroll" href="index.html">Events Planner</a>
+                <a class="navbar-brand page-scroll" href="/">Events Planner</a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
-           <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
                     <li>
                         <a class="page-scroll" href="/login">Login</a>
@@ -62,137 +61,62 @@
                         <a class="page-scroll" href="/events">Events</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="/searchTodo">To Do Page</a>
-                    </li>
-                    <li>
-                        <a class="page-scroll" href="/editTodo">Edit To Do Page</a>
-                    </li>
-                    <li>
-                        <a class="page-scroll" href="/plusTodo">+ Todo</a>
+                        <a class="page-scroll" href="/todos">Todos</a>
                     </li>
                     <li>
                         <a class="page-scroll" href="/profile">Profile</a>
                     </li>
                     <li>
                         <a class="page-scroll" href="/settings">Setting</a>
-                    </li>
-
-                    
+                    </li>                    
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
         </div>
         <!-- /.container-fluid -->
     </nav>
-    <section class="bg-dark" id="Events">
-        <div class="container text-center">
-            <h1>TO DO PAGE</h1>
-        </div>
-    </section>
-
-    <img src="img/img_eventPage/party.jpg" style="width:100%;">
-    <br>
-
-    <div class="container">
-        <div class="row" style="margin-left:200px;">
-        <br>
-            <div class="panel">
-                <h3>Status:</h3>
-                <div class="progress">
-                  <div class="progress-bar" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width:100%;">
-                   100%
-                  </div>
-                </div>
-            </div> 
-        <div class="verticalLine" id="section">
-            <a href="#">
-            <div class='rectangle-box-addTask' style="cursor:pointer">
-                 <div class='rectangle-content'>
-                    <div>
-                        <span>+Add another task</span>
-                    </div>
-                </div>
-            </div>
-            </a>
-
-            <p style="line-height:0">     
-            <div class="checkbox">
-                <label><input class="onlinecheckbox checkboxlist" type="checkbox" value="" ></label>
-                &nbsp;&nbsp;<div class='rectangle-box-todocheck '>
-                <div class="rectangle-content">
-                    <div>
-                        <span>Buy a Cake</span>
-                    </div>
-                </div>
-                </div>
-            </div>
-            </p>
-
-            <p style="line-height:0"> 
-            <br>    
-            <div class="checkbox">
-                <label><input class="onlinecheckbox checkboxlist" type="checkbox" value="" ></label>
-                &nbsp;&nbsp;<div class='rectangle-box-todoyet '>
-                <div class="rectangle-content">
-                    <div>
-                        <span>Clean House</span>
-                    </div>
-                </div>
-                </div>
-            </div>
-            </p>
-
-            <p style="line-height:0"> 
-            <br>    
-            <div class="checkbox">
-                <label><input class="onlinecheckbox checkboxlist" type="checkbox" value="" ></label>
-                &nbsp;&nbsp;<div class='rectangle-box-todoyet '>
-                <div class="rectangle-content">
-                    <div>
-                        <span>Buy 20 Plastic Cups</span>
-                    </div>
-                </div>
-                </div>
-            </div>
-            </p>
-
-            <p style="line-height:0"> 
-            <br>    
-            <div class="checkbox">
-                <label><input class="onlinecheckbox checkboxlist" type="checkbox" value="" ></label>
-                &nbsp;&nbsp;<div class='rectangle-box-todocheck '>
-                <div class="rectangle-content">
-                    <div>
-                        <span>Buy Drinks</span>
-                    </div>
-                </div>
-                </div>
-            </div>
-            </p>
-
-            <p style="line-height:0"> 
-            <br>    
-            <div class="checkbox">
-                <label><input class="onlinecheckbox checkboxlist" type="checkbox" value="" ></label>
-                &nbsp;&nbsp;<div class='rectangle-box-todoyet '>
-                <div class="rectangle-content">
-                    <div>
-                        <span>Download Party Songs</span>
-                    </div>
-                </div>
-                </div>
-            </div>
-            </p>
-            <br>
-            <button type="button" class="btn btn-primary">Edit</button>
-            <button type="button" class="btn btn-primary">Delete</button>
-        </div>
-    </p>
-    <br>
-    
+	<section id="container" class="bg-dark" style="align-content:center; background: url(img/img_eventPage/img_party.jpg) no-repeat; background-size:cover;">		
+			      <br><br><br><br>
+			      <span style="color: white; font: bold 39px/60px Helvetica, Sans-Serif; letter-spacing: -1px;  background: rgb(0, 0, 0); background: rgba(0, 0, 0, 0.7);padding: 10px;">
+			      	 Event Title
+			      </span>
+			      <br>
+			      <span style="color: white; font: 29px/60px Helvetica, Sans-Serif; background: rgb(0, 0, 0); background: rgba(0, 0, 0, 0.7);padding: 10px;">
+			      	 Event Description
+			      </span>
+	</section>
+	<section id="skills" style="padding:0px">
+		<progress value="0" max="100"></progress><span></span>
+	</section>
+	<section id="container" style="padding:0px">
+	    <div class="container">
+		    <div class="row">
+		    	<h1>Event Todo List</h1>
+		    </div>
+		    <table style="width:100%">
+		    	<tr>
+		    		<td align="left">
+			            <form action="" class="search-form">
+			                <div class="form-group has-feedback">
+			                    <label for="search" class="sr-only">Search</label>
+			                    <input type="text" class="form-control" name="search" id="search" placeholder="Search">
+			                    <span class="glyphicon glyphicon-search form-control-feedback"></span>
+			                </div>
+			            </form>
+		    		</td>
+		    		<td align="right">
+		    			<input type='submit' value='+ Add Pre-Made Todo to the List' class='btn btn-primary' style='background:#F05F40;color:white;'>
+		    		</td>
+		    	</tr>
+		    </table>
+	    </div>
+	    
+	    <div class="container">
+	   	<div class="row" id="TodoListContainer">
+		</div>
     </div>
-    </div> 
-<br>
+	    
+	</section>
     
     <section id="contact" class="bg-dark">
         <div class="container ">
@@ -212,15 +136,7 @@
                 </div>
             </div>
         </div>
-    </sectionevent>
-
-    
-
-
-
-
-
-
+    </section>
 
 
     <!-- Angular -->
@@ -238,6 +154,7 @@
     <!-- Custom Theme JavaScript -->
     <script src="js/creative.js"></script>
 
+	<script src="js/ajax_edit_todoPage.js"></script>
 </body>
 
 </html>
