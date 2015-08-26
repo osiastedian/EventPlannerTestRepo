@@ -1,7 +1,7 @@
 //@File: ajax_todoPage.js
 //@Author: Caparoso, AJY
 //@Date: August 15, 2015
-//@Revision Date: August 24, 2015
+//@Revision Date: August 26, 2015
 
 $(document).ready(function() {
 	var responseJSON = null;
@@ -71,8 +71,12 @@ $(document).ready(function() {
 				
 				"</td>" +
 				"<td>" + //Need for implementations below...
+				"<a href='#editModal'>"+
 				"<input type='submit' value='Edit' class='btn btn-primary' style='background:#6f6f6f;color:white;width:60px;'> " +
+				"</a>"+
+				"<a href='#deleteModal'>"+
 				"<input type='submit' value='X' class='btn btn-primary' style='background:#cc3333;color:white;width:35px;'>" +
+				"</a>"+
 				"</td></tr>";
 			}
 		}
