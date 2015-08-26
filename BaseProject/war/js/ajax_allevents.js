@@ -1,9 +1,18 @@
 //@File: ajax_allevent.js
 //@Author: Arreglo CAF.
 //@Date: August 15, 2015
-
+var app = angular.module('allevents', []);
+app.controller('generateEvents', function($scope, $http) {
+      $http.get("http://localhost:8888/admin/event/get")
+	    .success(function(response) {
+	    	$scope.data = response.events;
+	    	
+	    });
+});
 $(document).ready(function() {
 	
+	
+	/*
 	var responseJSON = null;
 	
 	getAllEventsList();
@@ -37,10 +46,10 @@ $(document).ready(function() {
 				$.each(data.events, function(index, value) {
 					htmlFormattedListString += "<div class='col-lg-3 col-md-6 text-center'>" +
 		                					   "<div class='service-box'>" +
-		                					   "<a href='/event'>" + //Make the link dynamic if ready.
+		                					   "<a href='/event?"+ value.eventID +"'>" + //Make the link dynamic if ready.
 		                					   "<i class='fa fa-4x fa-diamond wow bounceIn text-primary'></i>" +
 		                					   "</a>" +
-		                					   "<h3>" + value.eventName +"</h3>" +
+		                					   "<h3>" + value.eventName + "</h3>" +
 		                    				   "<p class='text-muted'>" + value.description +"</p>" +
 		                    				   "</div></div>";
 				});
@@ -56,5 +65,6 @@ $(document).ready(function() {
 				$("#EventListContainer").html("<div><h3>Oops! We're sorry.</h3><br>Something wrong happened, but we will assure we can fix it soon.</div>");
 			}
 		});
-	}
+	}*/
+
 });
