@@ -5,6 +5,7 @@ import java.util.List;
 import org.slim3.datastore.DaoBase;
 import org.slim3.datastore.Datastore;
 
+import com.google.appengine.api.datastore.Query;
 import com.google.appengine.api.datastore.Transaction;
 import com.google.appengine.api.datastore.Key;
 
@@ -48,6 +49,11 @@ public class EventModelDao extends DaoBase<EventModel>{
      *            the sortingOrder of the query
      * @return List of Events.
      */
+    public EventModel getEvent(int id){
+        EventModel model = new EventModel();
+        model = Datastore.query(EventModel.class).filter("id", Query.FilterOperator.EQUAL, id).asSingle();
+        return model;
+    }
     public List<EventModel> getAllEvent(String sortOrder)
     {
         return null;

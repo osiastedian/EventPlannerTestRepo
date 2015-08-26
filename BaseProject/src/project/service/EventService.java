@@ -115,4 +115,12 @@ public class EventService {
             model.setKey(key);
             return dao.updateEvent(model);
         }
+        public EventModelDto loadEventToDto(EventModelDto dto){
+            EventModelDao dao = new EventModelDao();
+            EventModel model = dao.getEvent(dto.getEventID());
+            dto.setEventName(model.getEventName());
+            dto.setDescription(model.getDescription());
+            return dto;
+            
+        }
 }

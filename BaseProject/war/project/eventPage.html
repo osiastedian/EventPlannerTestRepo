@@ -37,7 +37,7 @@
 
 </head>
 
-<body id="page-top" ng-app="" bgcolor="#B2C6E8">
+<body id="page-top" bgcolor="#B2C6E8">
     <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
     <div class="container-fluid">
             <!-- Brand and toggle get grouped for better mobile display -->
@@ -75,14 +75,15 @@
         </div>
         <!-- /.container-fluid -->
     </nav>
-	<section id="container" class="bg-dark" style="align-content:center; background: url(img/img_eventPage/img_party.jpg) no-repeat; background-size:cover;">		
+    <div ng-app="eventPage" ng-controller="eventController">
+    <section id="container" class="bg-dark" style="align-content:center; background: url(img/img_eventPage/img_party.jpg) no-repeat; background-size:cover;">		
 			      <br><br><br><br>
 			      <span style="color: white; font: bold 39px/60px Helvetica, Sans-Serif; letter-spacing: -1px;  background: rgb(0, 0, 0); background: rgba(0, 0, 0, 0.7);padding: 10px;">
-			      	 Event Title
+			     {{event.eventTitle}}
 			      </span>
 			      <br>
 			      <span style="color: white; font: 29px/60px Helvetica, Sans-Serif; background: rgb(0, 0, 0); background: rgba(0, 0, 0, 0.7);padding: 10px;">
-			      	 Event Description
+			      	{{event.eventDescription}}
 			      </span>
 	</section>
 	<section id="skills" style="padding:0px">
@@ -91,7 +92,7 @@
 	<section id="container" style="padding:0px">
 	    <div class="container">
 		    <div class="row">
-		    	<h1>Event Todo List</h1>
+		    	<h1>{{event.eventTitle}} Todo List</h1>
 		    </div>
 		    <table style="width:100%">
 		    	<tr>
@@ -99,8 +100,9 @@
 			            <form action="" class="search-form">
 			                <div class="form-group has-feedback">
 			                    <label for="search" class="sr-only">Search</label>
-			                    <input type="text" class="form-control" name="search" id="search" placeholder="Search">
+			                    <input type="text" ng-init="searchedString=''" ng-model="searchedString" class="form-control" name="search" id="search" placeholder="Search">
 			                    <span class="glyphicon glyphicon-search form-control-feedback"></span>
+			                    
 			                </div>
 			            </form>
 		    		</td>
@@ -112,12 +114,44 @@
 	    </div>
 	    
 	    <div class="container">
-	   	<div class="row" id="TodoListContainer">
+		   	<div class="row" id="TodoListContainer">
+		   		<table class='table' align='center' style='width:1200px;'>
+					<tr>
+					<td></td>
+					<td><b>Name</b></td>
+					<td><b>Description</b></td>
+					<td><b>Status</b></td>
+					<td></td>
+					</tr>
+					<tr ng-if="tempTodoList.length == 0"><td colspan='5' align='center'><br>There are no available todos right now.<br><br></td></tr><tr><td colspan='4'></td></tr>
+					
+					<!-- Headers -->
+					<tr ng-repeat="x in tempTodoList" ng-if="x.title.indexOf(searchedString) > -1">
+							
+							<td><input ng-if="x.total_quantity > 1" type='number' value={{x.progress_quantity}} style='width:40px;' min='0' max={{x.total_quantity}}>
+								<input ng-if="x.total_quantity == 1 "ng-checked="x.total_quantity == x.progress_quantity" type='checkbox'  >
+								
+							<td><h4>{{x.title}}</h4></td>
+							<td><h4>{{x.description}}</h4></td>
+						 	<td>
+						 		<select>
+						 			<option ng-selected="x.progress_quantity ==0">New</option>
+						 			<option ng-selected="x.progress_quantity >0 && x.progress_quantity < x.total_quantity">In Progress</option>
+						 			<option ng-selected="x.progress_quantity == x.total_quantity">Finished</option>
+						 			
+						 		</select>
+						 	</td>
+						 	<td>
+						 		<input type='submit' value='Edit' class='btn btn-primary' style='background:#6f6f6f;color:white;width:60px;'>
+						 		<input type='submit' value='X' class='btn btn-primary' style='background:#cc3333;color:white;width:35px;'>
+						 	</td>
+					</tr>
+		   		</table>
+			</div>
 		</div>
-    </div>
 	    
 	</section>
-    
+    </div>
     <section id="contact" class="bg-dark">
         <div class="container ">
             <div class="row">

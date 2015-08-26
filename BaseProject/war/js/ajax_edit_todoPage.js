@@ -3,8 +3,58 @@
 //@Date: August 15, 2015
 //@Revision Date: August 23, 2015
 
+// Revision History: 
+//@Author: Ted Ian Osias
+//@Revision Date: August 26, 2015
+
+var app = angular.module('eventPage', []);
+app.controller('eventController', function($scope, $http) {
+	$scope.event = {
+			eventId : 1,
+			eventTitle: "TEst Title",
+			eventDescription: "Test Description"
+			};
+	$scope.todoList =[
+                      {total_quantity:1, progress_quantity:1, title:"Arrange Chairs", description:"A good party comes with good chairs."},
+                      {total_quantity:1, progress_quantity:0, title:"Buy a Cake",  description:"Nothing is better than a cake."},
+                      {total_quantity:13, progress_quantity:8, title:"Buy 13 Kinds of Round Fruits",  description:"To prosper your new year's life."},
+                      {total_quantity:5, progress_quantity:2, title:"Buy 5 Cans of Soda",  description:"Party with friends is fun with poping sodas."},
+                      {total_quantity:1,  progress_quantity:0, title:"Setup Wifi Network",  description:"Everybody loves to share their moments online."}
+                     ];
+	$scope.tempTodoList = $scope.todoList; 
+	
+	function showProgress() {
+		var progress = getProgess();
+		$('progress').val(0).animate({ value: progress }, { duration: 2000, easing: 'easeOutCirc' });	
+	};
+	function getProgess() {
+		var totalProgress = 0;
+		var taskRatio = 100 / $scope.todoList.length;
+		for(var i = 0; i < $scope.todoList.length; i++) {
+			totalProgress += ($scope.todoList[i].progress_quantity / $scope.todoList[i].total_quantity) * taskRatio;
+		}
+		return totalProgress;
+	};
+		showProgress();
+	/*
+	  var event = {
+			eventId : 1,
+			eventTitle: "TEst Title",
+			eventDescription: "Test Description"
+			};
+
+	  $http.post('http://localhost:8888/admin/event/get',event).
+	  success(function(response) {
+		    alert("Successfully Loaded Events!");
+		  });*/
+	function selected(progress,total){
+		return true;
+	}
+	  
+});
+
 $(document).ready(function() {
-	var responseJSON = null;
+	/*var responseJSON = null;
 	var array0fObj_todoList = [];
 	
 	getTodoList();
@@ -190,5 +240,5 @@ $(document).ready(function() {
 			htmlFormattedListString += "</table>";
 			$("#TodoListContainer").html(htmlFormattedListString);
 		}
-	
+	*/
 });
