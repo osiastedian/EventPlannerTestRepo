@@ -1,12 +1,11 @@
 //@File: ajax_todoPage.js
-//@Author: Caparoso, AJY
+//@Author: Caparoso, AJY & Arreglo, CAF
 //@Date: August 15, 2015
-//@Revision Date: August 26, 2015
+//@Revision Date: August 27, 2015
+var array0fObj_todoList = [];
 
 $(document).ready(function() {
 	var responseJSON = null;
-	var array0fObj_todoList = [];
-	
 	getTodoList();
 	
 	function getDummyData() {
@@ -55,7 +54,6 @@ $(document).ready(function() {
 		"<td></td>" +
 		"<td><b>Name</b></td>" +
 		"<td><b>Description</b></td>" +
-		"<td><b></b></td>" +
 		"<td></td>" +
 		"</tr>";
 		if(array0fObj_todoList.length == 0) {
@@ -67,13 +65,10 @@ $(document).ready(function() {
 				htmlFormattedListString += "</td>" +
 				"<td>" + array0fObj_todoList[i].todoName + "</td>" +
 				"<td>" + array0fObj_todoList[i].todoDescription + "</td>" +
-				"<td>" +
-				
-				"</td>" +
 				"<td>" + //Need for implementations below...
 				"<a href='#editModal'>"+
-				"<input type='submit' value='Edit' class='btn btn-primary' style='background:#6f6f6f;color:white;width:60px;'> " +
-				"</a>"+
+				"<button type='button' value='Edit' class='btn btn-primary' style='background:#6f6f6f;color:white;width:60px;' onClick='editScript("+ i +")'>Edit</button>" +
+				"</a> "+
 				"<a href='#deleteModal'>"+
 				"<input type='submit' value='X' class='btn btn-primary' style='background:#cc3333;color:white;width:35px;'>" +
 				"</a>"+
@@ -231,5 +226,11 @@ $(document).ready(function() {
 			htmlFormattedListString += "</table>";
 			$("#TodoListContainer").html(htmlFormattedListString);
 	 });
-	
 });
+
+
+function editScript(indexNumber) {
+	$('#todoQuantity').val(array0fObj_todoList[indexNumber].todoQuantity);
+	$('#todoTitle').val(array0fObj_todoList[indexNumber].todoName);
+	$('#todoDescription').val(array0fObj_todoList[indexNumber].todoDescription);
+}
