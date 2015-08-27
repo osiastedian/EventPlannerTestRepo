@@ -19,23 +19,33 @@ public class EventTodoDto {
      */
     private int eventID;
     /**
-     * Event title container
+     * Event Title container
      */
     private String eventTitle;
+    
     /**
      * Todo Id associated with specific event
      */
-    private int todoId = -1;
-    /**
-     *   Status of EventTodo.
-     */
-    private boolean todoStatus;
-    
+    private String todoId;
     /**
      * 
      * @return the event ID
      * 
      */
+    private TodoDto todo;
+    
+    /**
+     * @return the todo
+     */
+    public TodoDto getTodo() {
+        return todo;
+    }
+    /**
+     * @param todo the todo to set
+     */
+    public void setTodo(TodoDto todo) {
+        this.todo = todo;
+    }
     public int getEventID(){
         return this.eventID;
     }
@@ -46,43 +56,21 @@ public class EventTodoDto {
     public void setEventID(int id){
         this.eventID = id;
     }
-    /**
-     * 
-     * @return the event title
-     */
-    public String getEventTitle(){
-        return this.eventTitle;
-    }
-    /**
-     * 
-     * @param title the title to be set
-     */
-    public void setEventTitle(String title){
-        this.eventTitle = title;
-    }
+    
     /**
      * @return the todoId
      */
-    public int getTodoId() {
+    public String getTodoId() {
         return todoId;
     }
     /**
      * @param todoId the todoId to set
      */
-    public void setTodoId(int todoId) {
+    public void setTodoId(String todoId) {
         this.todoId = todoId;
     }
 
- 
-    public boolean getTodoStatus() {
-        return todoStatus;
-    }
-
-    public void setTodoStatus(boolean todoStatus) {
-        this.todoStatus = todoStatus;
-    }
-    
-    private static final long serialVersionUID = 1L;
+  private static final long serialVersionUID = 1L;
 
     @Attribute(primaryKey = true)
     private Key key;
@@ -165,8 +153,14 @@ public class EventTodoDto {
         JSONObject json = new JSONObject();
         json.put("key", this.getKey());
         json.put("eventID",this.getEventID());
-        json.put("eventTitle", this.getEventTitle());
         json.put("todoId", this.getTodoId());
+        json.put("todo", this.getTodo());
         return json;
+    }
+    public String getEventTitle() {
+        return eventTitle;
+    }
+    public void setEventTitle(String eventTitle) {
+        this.eventTitle = eventTitle;
     }
 }

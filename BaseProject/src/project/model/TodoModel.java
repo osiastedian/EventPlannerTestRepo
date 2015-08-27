@@ -10,18 +10,18 @@ import org.slim3.datastore.Model;
 @Model(schemaVersion = 1)
 public class TodoModel implements Serializable {
     
-    private int id = 0;
+    private String id;
     /**
      * @return the id
      */
-    public int getId() {
+    public String getId() {
         return id;
     }
 
     /**
      * @param id the id to set
      */
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 

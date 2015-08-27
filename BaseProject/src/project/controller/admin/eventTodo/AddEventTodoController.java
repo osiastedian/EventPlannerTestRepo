@@ -8,22 +8,20 @@ import project.dto.EventTodoDto;
 import project.model.EventTodoModel;
 import project.service.EventTodoService;
 
-public class RemoveEventTodo extends Controller {
+public class AddEventTodoController extends Controller {
 
-    EventTodoModel et = new EventTodoModel();
     @Override
     protected Navigation run() throws Exception {
         // TODO Auto-generated method stub
         EventTodoService service = new EventTodoService();
         JSONObject json = new JSONObject();
         EventTodoDto eventTodo = new EventTodoDto();
+        String requestParam = this.request.getParameter("data");
         try{
             json = new JSONObject((String) this.requestScope("data"));
             eventTodo.setEventID(json.getInt("eventID"));
-            eventTodo.setEventTitle(json.getString("eventTitle"));
-            eventTodo.setTodoId(json.getInt("todoID"));
-            eventTodo.setTodoStatus(json.getBoolean("todoStatus"));
-            service.removeEventTodo(eventTodo);
+            eventTodo.setTodoId(json.getString("todoID"));
+            service.addEventTodo(eventTodo);
         }catch(Exception e){
             e.printStackTrace();
             eventTodo.getErrorList().add("Server controller error: "+ e.getMessage());

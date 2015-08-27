@@ -5,6 +5,7 @@ import java.util.List;
 
 
 
+
 import org.slim3.datastore.Datastore;
 
 import com.google.appengine.api.datastore.Key;
@@ -108,5 +109,11 @@ public class TodoDao{
         trans.commit();
         ok = true;
         return ok;
+    }
+    public TodoModel getTodoById(String todoId) {
+        TodoModel model= null;
+        model = Datastore.query(TodoModel.class).filter("id", Query.FilterOperator.EQUAL, todoId).asSingle();
+        //model.setKey(key);
+        return model;
     }
 }

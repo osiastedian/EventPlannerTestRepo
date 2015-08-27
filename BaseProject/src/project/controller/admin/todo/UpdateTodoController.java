@@ -15,18 +15,6 @@ public class UpdateTodoController extends Controller {
 
     @Override
     public Navigation run() throws Exception {
-        /*TodoService service = new TodoService();
-        TodoDto todo = new TodoDto();
-        todo.setTitle("TitleTest0");
-        todo.setKey(Datastore.createKey(TodoModel.class, todo.getTitle()));
-        todo.setDescription("Edited Description");
-        todo.setFinished_quantity(999);
-        todo.setTotal_quantity(1000);
-        todo.setId(123456);
-        todo.setVersion((long)20);
-        service.updateTodo(todo);
-        return this.redirect("/");*/
-        System.out.println((String)this.requestScope("data"));
         TodoService service = new TodoService();
         JSONObject json = new JSONObject();
         TodoDto todo = new TodoDto();
@@ -37,7 +25,7 @@ public class UpdateTodoController extends Controller {
             todo.setDescription(json.getString("description"));
             todo.setFinished_quantity(json.getInt("finished_quantity"));
             todo.setKey(Datastore.createKey(TodoModel.class, todo.getTitle()));
-            todo.setId(json.getInt("id"));
+            todo.setId(json.getString("id"));
             todo.setTotal_quantity(json.getInt("total_quantity"));
             service.updateTodo(todo);
         } catch (Exception e) {

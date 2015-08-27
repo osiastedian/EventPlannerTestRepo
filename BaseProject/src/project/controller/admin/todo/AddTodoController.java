@@ -13,18 +13,17 @@ public class AddTodoController extends Controller {
     int counter = 1;
     @Override
     public Navigation run() throws Exception {
-        //System.out.println((String)this.requestScope("data"));
         TodoService service = new TodoService();
         JSONObject json = new JSONObject();
+        json.put("title", "Test Todo");
+        json.put("description", "Test Description");
+        json.put("total_quantity", 120);
         TodoDto todo = new TodoDto();
-        
         try {
-            json = new JSONObject((String)this.requestScope("data"));
+           // json = new JSONObject((String)this.requestScope("data"));
             todo.setTitle(json.getString("title"));
             todo.setDescription(json.getString("description"));
             todo.setFinished_quantity(0);
-            //todo.setKey((Key)json.get("key"));
-            //todo.setId(json.getInt("id"));
             todo.setTotal_quantity(json.getInt("total_quantity"));
             service.addTodo(todo);
         } catch (Exception e) {

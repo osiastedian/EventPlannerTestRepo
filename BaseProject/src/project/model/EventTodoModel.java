@@ -24,14 +24,30 @@ public class EventTodoModel implements Serializable {
      */
     private String eventTitle;
     /**
-     * Todo Id associated with specific event
+     * TODO Id associated with specific event
      */
-    private int todoId = -1;
+    private String todoId;
     /**
-     *   Status of EventTodo.
+     *  Title of the Todo.
      */
-    private boolean todoStatus;
+    private String todoTitle;
+    /**
+     *  Description of the Todo.
+     */
+    private String todoDescription;
+    /**
+     *  Total Quantity of the Todo (1-n).
+     */
+    private int todoTotal_quantity;
+    /**
+     *  Finished Quantity of the Todo (1-total_quantity).
+     *  
+     */
+    private int todoFinished_quantity;
     
+    /**
+     * @return the title
+     */
     /**
      * 
      * @return the event ID
@@ -64,24 +80,16 @@ public class EventTodoModel implements Serializable {
     /**
      * @return the todoId
      */
-    public int getTodoId() {
+    public String getTodoId() {
         return todoId;
     }
     /**
      * @param todoId the todoId to set
      */
-    public void setTodoId(int todoId) {
+    public void setTodoId(String todoId) {
         this.todoId = todoId;
     }
 
- 
-    public boolean getTodoStatus() {
-        return todoStatus;
-    }
-
-    public void setTodoStatus(boolean todoStatus) {
-        this.todoStatus = todoStatus;
-    }
    
     private static final long serialVersionUID = 1L;
 
@@ -170,4 +178,29 @@ public class EventTodoModel implements Serializable {
         json.put("todoId", this.getTodoId());
         return json;
     }
+    public String getTodoTitle() {
+        return todoTitle;
+    }
+    public void setTodoTitle(String todoTitle) {
+        this.todoTitle = todoTitle;
+    }
+    public String getTodoDescription() {
+        return todoDescription;
+    }
+    public void setTodoDescription(String todoDescription) {
+        this.todoDescription = todoDescription;
+    }
+    public int getTodoTotal_quantity() {
+        return todoTotal_quantity;
+    }
+    public void setTodoTotal_quantity(int todoTotal_quantity) {
+        this.todoTotal_quantity = todoTotal_quantity;
+    }
+    public int getTodoFinished_quantity() {
+        return todoFinished_quantity;
+    }
+    public void setTodoFinished_quantity(int todoFinished_quantity) {
+        this.todoFinished_quantity = todoFinished_quantity;
+    }
+    
 }

@@ -46,8 +46,6 @@ public class EventTodoModelDao extends DaoBase<EventTodoModel>{
     public boolean addEventTodo(EventTodoModel et){
         boolean ok = false;
         Transaction trans = Datastore.beginTransaction();
-        Key key = Datastore.createKey(EventTodoModel.class, et.getEventTitle());
-        et.setKey(key);
         Datastore.put(et);
         trans.commit();
         ok = true;

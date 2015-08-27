@@ -1,5 +1,6 @@
 package project.service;
 import java.util.List;
+import java.util.UUID;
 
 import org.slim3.datastore.Datastore;
 import org.slim3.datastore.ModelListener;
@@ -88,6 +89,7 @@ public class TodoService {
     {
         TodoModel model = new TodoModel();
         model.setKey(todo.getKey());
+        model.setId(UUID.randomUUID().toString());
         model.setTitle(todo.getTitle());
         model.setDescription(todo.getDescription());
         model.setFinished_quantity(todo.getFinished_quantity());
