@@ -145,8 +145,8 @@ private static final long serialVersionUID = 1L;
         JSONObject json = new JSONObject();
         json.put("key", this.getKey());
         json.put("eventID", this.getEventID());
-        json.put("eventName",this.getEventName());
-        json.put("description", this.getDescription());
+        json.put("eventTitle",this.getEventName());
+        json.put("eventDescription", this.getDescription());
         return json;
     }
     public List<String> getErrorList() {

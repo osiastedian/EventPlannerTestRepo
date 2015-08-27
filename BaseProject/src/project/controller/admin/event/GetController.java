@@ -1,5 +1,7 @@
 package project.controller.admin.event;
 
+import java.util.Map;
+
 import org.slim3.controller.Controller;
 import org.slim3.controller.Navigation;
 import org.slim3.repackaged.org.json.JSONObject;
@@ -15,12 +17,10 @@ public class GetController extends Controller {
     public Navigation run() throws Exception {
         JSONObject json = new JSONObject();
         EventModelDto dto = null;
-        
-        
+        String eventId = this.request.getParameter("eventId");
         try {
-            json = new JSONObject((String)this.requestScope("data"));
             dto = new EventModelDto();
-            dto.setEventID(json.getInt("eventId"));
+            dto.setEventID(Integer.parseInt(eventId));
             EventService service = new EventService();
             dto = service.loadEventToDto(dto);
             

@@ -51,7 +51,7 @@ public class EventModelDao extends DaoBase<EventModel>{
      */
     public EventModel getEvent(int id){
         EventModel model = new EventModel();
-        model = Datastore.query(EventModel.class).filter("id", Query.FilterOperator.EQUAL, id).asSingle();
+        model = Datastore.query(EventModel.class).filter("eventID", Query.FilterOperator.EQUAL, id).asSingle();
         return model;
     }
     public List<EventModel> getAllEvent(String sortOrder)

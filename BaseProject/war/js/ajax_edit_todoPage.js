@@ -35,22 +35,31 @@ app.controller('eventController', function($scope, $http) {
 		}
 		return totalProgress;
 	};
-		showProgress();
-	/*
-	  var event = {
-			eventId : 1,
-			eventTitle: "TEst Title",
-			eventDescription: "Test Description"
-			};
-
-	  $http.post('http://localhost:8888/admin/event/get',event).
-	  success(function(response) {
-		    alert("Successfully Loaded Events!");
-		  });*/
-	function selected(progress,total){
-		return true;
+	function getParameterByName(name) {
+	    name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+	    var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+	        results = regex.exec(location.search);
+	    return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
 	}
-	  
+	
+	function loadEvent(){
+		var eventId = getParameterByName('event');
+		var req = {
+					 method: 'GET',
+					 url: 'http://localhost:8888/admin/event/get',
+					 params: { 'eventId' : eventId }
+					}
+			 $http(req).
+			  then(function(response) {
+				    $scope.event = response.data.event;
+				  },
+				  function(response) {
+					    alert(response);
+				  })
+			   ;
+	}
+	loadEvent()
+	showProgress();
 });
 
 $(document).ready(function() {
