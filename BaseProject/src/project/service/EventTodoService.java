@@ -1,5 +1,6 @@
 package project.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.slim3.datastore.Datastore;
@@ -50,7 +51,20 @@ public class EventTodoService {
         return dao.updateEventTodo(model);
     }
     public List<TodoDto> getAllTodosByEventID(int eventId){
+        List<TodoDto> todoList = new ArrayList<TodoDto> ();
+        List<EventTodoModel> models = dao.getAllEventTodoWithEventID(eventId);
+        for(int i=0;i<models.size();i++){
+            TodoDto todo = new TodoDto();
+            EventTodoModel model = models.get(i);
+            todo.setTitle(model.getTodoTitle());
+            todo.setDescription(model.getTodoDescription());
+            todo.setFinished_quantity(model.getTodoFinished_quantity());
+            todo.setId(model.getTodoId());
+            todo.setTotal_quantity(model.getTodoTotal_quantity());
+            todoList.add(todo);
+        }
         
-        return null;
+        
+        return todoList;
     }
 }

@@ -107,7 +107,7 @@
 			            </form>
 		    		</td>
 		    		<td align="right">
-		    			<input type='submit' value='+ Add Pre-Made Todo to the List' class='btn btn-primary' style='background:#F05F40;color:white;'>
+		    			<input ng-click="addTodoToThisEvent()" type='submit' value='+ Add Pre-Made Todo to the List' class='btn btn-primary' style='background:#F05F40;color:white;'>
 		    		</td>
 		    	</tr>
 		    </table>
@@ -115,35 +115,36 @@
 	    
 	    <div class="container">
 		   	<div class="row" id="TodoListContainer">
-		   		<table class='table' align='center' style='width:1200px;'>
+		   		<table  ng-model="tempTodoList" class='table' align='center' style='width:1200px;'>
 					<tr>
 					<td></td>
 					<td><b>Name</b></td>
 					<td><b>Description</b></td>
 					<td><b>Status</b></td>
-					<td></td>
+					<td><b>Action</b></td>
 					</tr>
-					<tr ng-if="tempTodoList.length == 0"><td colspan='5' align='center'><br>There are no available todos right now.<br><br></td></tr><tr><td colspan='4'></td></tr>
+					<tr ng-if="tempTodoList.length == 0"><td colspan='5' align='center'><br>There are no available todos right now.<br><br></td></tr><tr><td colspan='5'></td></tr>
 					
 					<!-- Headers -->
-					<tr ng-repeat="x in tempTodoList" ng-if="x.title.indexOf(searchedString) > -1">
+					<tr   ng-repeat="x in tempTodoList" ng-if="x.title.indexOf(searchedString) > -1">
 							
-							<td><input ng-if="x.total_quantity > 1" type='number' value={{x.progress_quantity}} style='width:40px;' min='0' max={{x.total_quantity}}>
-								<input ng-if="x.total_quantity == 1 "ng-checked="x.total_quantity == x.progress_quantity" type='checkbox'  >
+							<td><input ng-if="x.total_quantity > 1" type='number' value={{x.finished_quantity}} style='width:40px;' min='0' max={{x.total_quantity}}>
+								<input ng-if="x.total_quantity == 1 "ng-checked="x.total_quantity == x.finished_quantity" type='checkbox'  >
 								
 							<td><h4>{{x.title}}</h4></td>
 							<td><h4>{{x.description}}</h4></td>
 						 	<td>
-						 		<select>
-						 			<option ng-selected="x.progress_quantity ==0">New</option>
-						 			<option ng-selected="x.progress_quantity >0 && x.progress_quantity < x.total_quantity">In Progress</option>
-						 			<option ng-selected="x.progress_quantity == x.total_quantity">Finished</option>
+						 		<select disabled>
+						 			<option ng-selected="x.finished_quantity ==0">New</option>
+						 			<option ng-selected="x.finished_quantity >0 && x.finished_quantity < x.total_quantity">In Progress</option>
+						 			<option ng-selected="x.finished_quantity == x.total_quantity">Finished</option>
 						 			
 						 		</select>
 						 	</td>
 						 	<td>
-						 		<input type='submit' value='Edit' class='btn btn-primary' style='background:#6f6f6f;color:white;width:60px;'>
-						 		<input type='submit' value='X' class='btn btn-primary' style='background:#cc3333;color:white;width:35px;'>
+						 		<input type='submit' ng-click="editTodoAt(tempTodoList.indexOf(x))" value='Edit' class='btn btn-primary' style='background:#6f6f6f;color:white;width:60px;'>
+						 		<input type='submit' ng-click="removeTodoAt(tempTodoList.indexOf(x))" value="X" class='btn btn-primary' style='background:#cc3333;color:white;width:35px;'>
+						 		
 						 	</td>
 					</tr>
 		   		</table>
@@ -188,7 +189,7 @@
     <!-- Custom Theme JavaScript -->
     <script src="js/creative.js"></script>
 
-	<script src="js/ajax_edit_todoPage.js"></script>
+	<script src="js/ajax_eventPage.js"></script>
 </body>
 
 </html>

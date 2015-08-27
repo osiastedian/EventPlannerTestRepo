@@ -7,6 +7,7 @@ import org.slim3.datastore.Datastore;
 
 import com.google.appengine.api.datastore.Key;
 import com.google.appengine.api.datastore.Transaction;
+import com.google.appengine.api.datastore.Query.FilterOperator;
 
 import project.model.EventTodoModel;
 
@@ -76,5 +77,12 @@ public class EventTodoModelDao extends DaoBase<EventTodoModel>{
         trans.commit();
         ok = true;
         return ok;
+    }
+    public List<EventTodoModel> getAllEventTodoWithEventID(int eventId) {
+        Transaction trans = Datastore.beginTransaction();
+        List<EventTodoModel> list = (List<EventTodoModel>) Datastore.query(EventTodoModel.class)
+                .filter("eventID",FilterOperator.EQUAL,eventId).asList();
+        trans.commit();
+        return list;
     }
 }

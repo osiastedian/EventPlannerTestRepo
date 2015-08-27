@@ -15,11 +15,11 @@ app.controller('eventController', function($scope, $http) {
 			eventDescription: "Test Description"
 			};
 	$scope.todoList =[
-                      {total_quantity:1, progress_quantity:1, title:"Arrange Chairs", description:"A good party comes with good chairs."},
-                      {total_quantity:1, progress_quantity:0, title:"Buy a Cake",  description:"Nothing is better than a cake."},
-                      {total_quantity:13, progress_quantity:8, title:"Buy 13 Kinds of Round Fruits",  description:"To prosper your new year's life."},
-                      {total_quantity:5, progress_quantity:2, title:"Buy 5 Cans of Soda",  description:"Party with friends is fun with poping sodas."},
-                      {total_quantity:1,  progress_quantity:0, title:"Setup Wifi Network",  description:"Everybody loves to share their moments online."}
+                      {total_quantity:1, finished_quantity:1, title:"Arrange Chairs", description:"A good party comes with good chairs."},
+                      {total_quantity:1, finished_quantity:0, title:"Buy a Cake",  description:"Nothing is better than a cake."},
+                      {total_quantity:13, finished_quantity:8, title:"Buy 13 Kinds of Round Fruits",  description:"To prosper your new year's life."},
+                      {total_quantity:5, finished_quantity:2, title:"Buy 5 Cans of Soda",  description:"Party with friends is fun with poping sodas."},
+                      {total_quantity:1,  finished_quantity:0, title:"Setup Wifi Network",  description:"Everybody loves to share their moments online."}
                      ];
 	$scope.tempTodoList = $scope.todoList; 
 	
@@ -31,10 +31,11 @@ app.controller('eventController', function($scope, $http) {
 		var totalProgress = 0;
 		var taskRatio = 100 / $scope.todoList.length;
 		for(var i = 0; i < $scope.todoList.length; i++) {
-			totalProgress += ($scope.todoList[i].progress_quantity / $scope.todoList[i].total_quantity) * taskRatio;
+			totalProgress += ($scope.todoList[i].finished_quantity / $scope.todoList[i].total_quantity) * taskRatio;
 		}
 		return totalProgress;
 	};
+	// USED for getting GET url parameters
 	function getParameterByName(name) {
 	    name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
 	    var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
@@ -44,19 +45,50 @@ app.controller('eventController', function($scope, $http) {
 	
 	function loadEvent(){
 		var eventId = getParameterByName('event');
-		var req = {
+		var eventInfoAJAX = {
 					 method: 'GET',
 					 url: 'http://localhost:8888/admin/event/get',
 					 params: { 'eventId' : eventId }
-					}
-			 $http(req).
-			  then(function(response) {
-				    $scope.event = response.data.event;
-				  },
-				  function(response) {
-					    alert(response);
-				  })
-			   ;
+					};
+		$http(eventInfoAJAX).
+		  then(function(response) {
+			    $scope.event = response.data.event;
+			  },
+			  function(response) {
+				    alert(response);
+			  })
+		   ;
+		var todoInfoAJAX = {
+			method: 'GET',
+			url: 'http://localhost:8888/admin/eventTodo/getTodoList',
+			params: { 'eventID' : eventId }	
+		};
+		
+		$http(todoInfoAJAX).
+		  then(function(response) {
+			    $scope.tempTodoList = response.data.todoList;
+			  },
+			  function(response) {
+				    console.log("An error has occurred in loading the TODO list.");
+			  })
+		   ;
+		
+		
+	}
+	//// DELETE
+	$scope.removeTodoAt = function (position){
+		$scope.todoList.splice(position,1);
+		
+	}
+	///// EDIT
+	$scope.editTodoAt = function (position){
+		alert("Edit Todo at : "+position);
+		
+	}
+	///// ADD
+	$scope.addTodoToThisEvent = function (){
+		alert("Load TODO modal for adding TODOS to this event");
+		
 	}
 	loadEvent()
 	showProgress();
